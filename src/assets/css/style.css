@@ -1,0 +1,9 @@
+/* font */
+/* @font-face {
+    font-family: Kalameh;
+    src: url('../../assets/font/Kalameh/Farsi_Numerals/WebFonts/');
+} */
+/* all class */
+html,body {
+    direction: rtl;
+}
