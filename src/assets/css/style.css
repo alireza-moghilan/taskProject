@@ -1,9 +1,19 @@
-/* font */
-/* @font-face {
-    font-family: Kalameh;
-    src: url('../../assets/font/Kalameh/Farsi_Numerals/WebFonts/');
-} */
+@import url('./root.css');
+
 /* all class */
 html,body {
     direction: rtl;
+}
+
+
+/* col */
+.col-aside {
+    flex: 0 0 auto;
+    width: 19%;
+}
+
+/* bootstrap */
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: var(--bs-nav-pills-link-active-color);
+    background-color: var(--main-color);
 }
