@@ -1,46 +1,48 @@
 // logo
+import { Link, useLocation } from 'react-router-dom';
 import logoColorTwoCard from './assets/img/logoColorTwoCard.png';
 
 export const Aside = (ev) => {
+    const location = useLocation();
     return (
         <>
             <aside style={{height:"100vh"}}>
                 <div className="d-flex flex-column flex-shrink-0 p-3 bg-light h-100 w-100 shadow">
-                    <a href="/" className="d-flex align-items-end mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                    <Link to={"/"} className="d-flex align-items-end mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                         <img src={logoColorTwoCard} className='w-25' alt="" />
                         <span className="fs-4 ms-3 mb-0 h6">تسک</span>
-                    </a>
+                    </Link>
                     <hr className='mb-3'/>
                     <ul className="nav nav-pills flex-column mb-auto">
                         <li className="nav-item mb-3">
-                            <a href="#" className="nav-link active" aria-current="page">
+                            <Link to={"/home"} className={(location.pathname==="/home"||location.pathname==="/"?"active":"link-dark") + " nav-link"} aria-current="page">
                                 <span className="me-3"><i className="bi bi-house-door"></i></span>
                                 خانه
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item mb-3">
-                            <a href="#" className="nav-link link-dark">
+                            <Link to={"/dashboard"} className={(location.pathname==="/dashboard"?"active":"link-dark") +" nav-link "}>
                                 <span className="me-3"><i className="bi bi-speedometer2"></i></span>
                                 داشبورد
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item mb-3">
-                            <a href="#" className="nav-link link-dark">
+                            <Link to={"#"} className="nav-link link-dark">
                                 <span className="me-3"><i className="bi bi-list-task"></i></span>
                                 ثبت تسک روزانه جدید
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item mb-3">
-                            <a href="#" className="nav-link link-dark">
+                            <Link to={"#"} className="nav-link link-dark">
                                 <span className="me-3"><i className="bi bi-list-task"></i></span>
                                 ثبت تسک بلند مدت
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item mb-3">
-                            <a href="#" className="nav-link link-dark">
+                            <Link to={"#"} className="nav-link link-dark">
                                 <span className="me-3"><i className="bi bi-view-list"></i></span>
                                 مشاهده تمام تسک ها
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                     <hr />

@@ -1,7 +1,16 @@
+/* root and color */
 @import url('./root.css');
+.bg-main {
+    background-color: var(--main-color);
+}
+.text-main {
+    color: var(--main-color);
+}
+
 
 /* all class */
-html,body {
+html,
+body {
     direction: rtl;
 }
 
@@ -13,7 +22,18 @@ html,body {
 }
 
 /* bootstrap */
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
     color: var(--bs-nav-pills-link-active-color);
     background-color: var(--main-color);
+}
+
+
+/* content */
+.content {
+    min-height: calc(100vh - 204px);
+}
+
+footer {
+    margin-top: auto !important;
 }

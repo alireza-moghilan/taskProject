@@ -11,6 +11,7 @@ import './assets/css/font.css';
 // component
 import { HomePage } from './home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Dashboard } from './dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +20,7 @@ root.render(
       <Routes>
         <Route path={"/home"} element={<HomePage />} />
         <Route path={"/"} element={<HomePage />} />
+        <Route path={"/dashboard"} element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
 
