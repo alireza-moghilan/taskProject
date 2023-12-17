@@ -10,16 +10,16 @@ export const Aside = (ev) => {
                 <div className="d-flex flex-column flex-shrink-0 p-3 bg-light h-100 w-100 shadow">
                     <Link to={"/"} className="d-flex align-items-end mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                         <img src={logoColorTwoCard} className='w-25' alt="" />
-                        <span className="fs-4 ms-3 mb-0 h6">تسک</span>
+                        <span className="fs-4 ms-3 mb-0 h6">تسکار</span>
                     </Link>
                     <hr className='mb-3'/>
                     <ul className="nav nav-pills flex-column mb-auto">
-                        <li className="nav-item mb-3">
+                        {/* <li className="nav-item mb-3">
                             <Link to={"/home"} className={(location.pathname==="/home"||location.pathname==="/"?"active":"link-dark") + " nav-link"} aria-current="page">
                                 <span className="me-3"><i className="bi bi-house-door"></i></span>
                                 خانه
                             </Link>
-                        </li>
+                        </li> */}
                         <li className="nav-item mb-3">
                             <Link to={"/dashboard"} className={(location.pathname==="/dashboard"?"active":"link-dark") +" nav-link "}>
                                 <span className="me-3"><i className="bi bi-speedometer2"></i></span>
@@ -34,8 +34,8 @@ export const Aside = (ev) => {
                         </li>
                         <li className="nav-item mb-3">
                             <Link to={"#"} className="nav-link link-dark">
-                                <span className="me-3"><i className="bi bi-list-task"></i></span>
-                                ثبت تسک بلند مدت
+                                <span className="me-3"><i className="bi bi-substack"></i></span>
+                                ثبت اهداف بلند مدت
                             </Link>
                         </li>
                         <li className="nav-item mb-3">

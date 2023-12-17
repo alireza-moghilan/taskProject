@@ -9,7 +9,6 @@ import './assets/css/style.css';
 import './assets/css/reset.css';
 import './assets/css/font.css';
 // component
-import { HomePage } from './home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Dashboard } from './dashboard';
 
@@ -18,8 +17,7 @@ root.render(
   <>
     <BrowserRouter>
       <Routes>
-        <Route path={"/home"} element={<HomePage />} />
-        <Route path={"/"} element={<HomePage />} />
+        <Route path={"/"} element={<Dashboard />} />
         <Route path={"/dashboard"} element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
