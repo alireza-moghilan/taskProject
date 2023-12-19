@@ -10,6 +10,10 @@ h1, h2, h3, h4, h5, h6{
 	font-family: KalamehWebFaNum !important;
 }
 
+tspan {
+	font-family: KalamehWebFaNum !important;
+}
+
 .wrapper {
 	max-width: 900px;
 	margin: 20px auto;

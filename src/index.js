@@ -11,6 +11,7 @@ import './assets/css/font.css';
 // component
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Dashboard } from './dashboard';
+import ApexChart from './chart';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,7 +22,6 @@ root.render(
         <Route path={"/dashboard"} element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
-
     {/* <HomePage/> */}
   </>
 );

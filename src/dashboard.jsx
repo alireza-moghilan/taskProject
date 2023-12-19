@@ -8,9 +8,11 @@ import { BoxLink } from "./boxLink"
 import calender from "./assets/img/3D/calender-dynamic-gradient.png"
 import target from "./assets/img/3D/target-dynamic-gradient.png"
 import totalTask from "./assets/img/3D/fav-folder-dynamic-gradient.png"
+import App from "./chart"
+import ApexChart from "./chart"
 
-export const Dashboard = (ev)=> {
-    return(
+export const Dashboard = (ev) => {
+    return (
         <>
             <main className="container-custom">
                 <div className=" row g-0">
@@ -31,6 +33,11 @@ export const Dashboard = (ev)=> {
                                 <BoxLink classCol={"col-4"} title={"مجموع تسک ها"} link={"ViewAllTasks"} description={"تسک"} number={20} img={<img src={totalTask} className="fit-contain" width={80} />} />
                             </div>
 
+                            <div>
+                                {
+                                    <ApexChart />
+                                }
+                            </div>
                         </section>
 
 

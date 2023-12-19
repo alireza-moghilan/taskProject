@@ -21,7 +21,7 @@ export const Aside = (ev) => {
                             </Link>
                         </li> */}
                         <li className="nav-item mb-3">
-                            <Link to={"/dashboard"} className={(location.pathname==="/dashboard"?"active":"link-dark") +" nav-link "}>
+                            <Link to={"/dashboard"} className={(location.pathname==="/"|| location.pathname==="/dashboard"?"active":"link-dark") +" nav-link "}>
                                 <span className="me-3"><i className="bi bi-speedometer2"></i></span>
                                 داشبورد
                             </Link>

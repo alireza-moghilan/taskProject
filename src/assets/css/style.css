@@ -7,11 +7,43 @@
     color: var(--main-color);
 }
 
+.bg-lemon {
+    background-color: var(--lemon-color);
+}
+.text-lemon {
+    color: var(--lemon-color);
+}
+
+.bg-purple-1 {
+    background-color: var(--purple-color-1);
+}
+.text-purple-1 {
+    color: var(--purple-color-1);
+}
+
+.bg-purple-2 {
+    background-color: var(--purple-color-2);
+}
+.text-purple-2 {
+    color: var(--purple-color-2);
+}
+
 
 /* all class */
 html,
 body {
     direction: rtl;
+}
+.decoration-none {
+    text-decoration: none;
+}
+.fit-contain {
+    object-fit: contain;
+}
+.card-custom {
+    box-shadow: 0px 0 8px var(--main-color);
+    border: 5px solid #6f6be5;
+    background-color: var(--lemon-transparent-color);
 }
 
 
@@ -31,9 +63,42 @@ body {
 
 /* content */
 .content {
-    min-height: calc(100vh - 204px);
+    min-height: calc(100vh - 170px);
+    height: 51vh;
+    overflow: auto;
 }
 
 footer {
     margin-top: auto !important;
+    box-shadow: -4px 0px 10px #d8cdd8;
+}
+
+
+/* active */
+.active-bottom-line {
+    color: var(--main-color) !important;
+    font-weight: 600;
+
+    position: relative;
+}
+.active-bottom-line::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    height: 3px;
+
+    border-radius: 50%;
+    background-color: var(--main-color);
+}
+
+/* container */
+@media screen and (min-width:2000px) {
+    .container-custom {
+        max-width: 1420px;
+        margin: auto;
+    }
 }
