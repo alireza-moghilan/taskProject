@@ -1,8 +1,10 @@
 /* root and color */
 @import url('./root.css');
+
 .bg-main {
     background-color: var(--main-color);
 }
+
 .text-main {
     color: var(--main-color);
 }
@@ -10,6 +12,7 @@
 .bg-lemon {
     background-color: var(--lemon-color);
 }
+
 .text-lemon {
     color: var(--lemon-color);
 }
@@ -17,6 +20,7 @@
 .bg-purple-1 {
     background-color: var(--purple-color-1);
 }
+
 .text-purple-1 {
     color: var(--purple-color-1);
 }
@@ -24,6 +28,7 @@
 .bg-purple-2 {
     background-color: var(--purple-color-2);
 }
+
 .text-purple-2 {
     color: var(--purple-color-2);
 }
@@ -34,20 +39,26 @@ html,
 body {
     direction: rtl;
 }
+
 .decoration-none {
     text-decoration: none;
 }
+
 .fit-contain {
     object-fit: contain;
 }
+
 .card-custom {
     box-shadow: 0px 0 8px var(--main-color);
     border: 5px solid #6f6be5;
     background-color: var(--lemon-transparent-color);
 }
+
 .shadow-custom {
     box-shadow: 0 0 12px #d8cdd8;
 }
+
+
 
 /* col */
 .col-aside {
@@ -83,6 +94,7 @@ footer {
 
     position: relative;
 }
+
 .active-bottom-line::after {
     content: '';
     position: absolute;
@@ -106,4 +118,28 @@ footer {
 }
 
 
-/* chart js */
+/* data table */
+.data-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.data-table>tr>th,
+.data-table>tr>td {
+    text-align: start;
+    padding: 16px;
+}
+.data-table>tr>td {
+    line-height: 24px;
+    vertical-align: center;
+}
+.data-table>tr>.description {
+    font-size: 13px;
+}
+
+
+.data-table>tr:nth-child(even) {
+    background-color: #f2f2f2
+}

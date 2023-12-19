@@ -11,7 +11,7 @@ import './assets/css/font.css';
 // component
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Dashboard } from './dashboard';
-import ApexChart from './chart';
+import ApexChart from './chartBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
