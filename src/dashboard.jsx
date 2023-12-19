@@ -27,16 +27,24 @@ export const Dashboard = (ev) => {
 
                         {/* Content */}
                         <section className="p-5 content">
-                            <div className="row justify-content-center gy-4 gx-4">
+                            <div className="row gy-5 gx-4">
                                 <BoxLink classCol={"col-4"} title={"تسک روزانه"} link={"todaysTasks"} description={"تسک"} number={10} img={<img src={calender} className="fit-contain" width={70} alt="calender" />} />
                                 <BoxLink classCol={"col-4"} title={"اهداف بلند مدت"} link={"longTermPurposes"} description={"هدف اصلی"} number={10} img={<img src={target} className="fit-contain" width={80} />} />
                                 <BoxLink classCol={"col-4"} title={"مجموع تسک ها"} link={"ViewAllTasks"} description={"تسک"} number={20} img={<img src={totalTask} className="fit-contain" width={80} />} />
-                            </div>
+                           
 
-                            <div>
-                                {
-                                    <ApexChart />
-                                }
+                                {/* table */}
+                                <div className="col-6">
+                                    <div className="bg-white shadow-custom rounded-3 p-4 pb-2">
+                                    <div className="mb-4">
+                                        <h3 className="fw-bold h6">درصد کارکرد در هفته جاری</h3>
+                                        <hr />
+                                    </div>
+                                    {
+                                        <ApexChart />
+                                    }
+                                    </div>
+                                </div>
                             </div>
                         </section>
 

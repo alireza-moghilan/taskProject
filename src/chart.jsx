@@ -4,106 +4,69 @@ import Chart from "react-apexcharts";
 class ApexChart extends React.Component {
   constructor(props) {
     super(props);
-    const generateData1 = () => {
-      const data = [20,15, 10, 20,15]
-      return data;
-    }
-    const generateData2 = () => {
-      const data = [10,20, 15, 10,15]
-      return data;
-    }
-    const generateData3 = () => {
-      const data = [20,15, 10, 10,15]
-      return data;
-    }
-    const generateData4 = () => {
-      const data = [10,15, 20, 20,10]
-      return data;
-    }
-    const generateData5 = () => {
-      const data = [20,15, 10, 15,20]
-      return data;
-    }
-    const generateData6 = () => {
-      const data = [10,20, 15, 15,20]
-      return data;
-    }
-    const generateData7 = () => {
-      const data = [20,15, 10, 10,15]
-      return data;
-    }
-    const generateData8 = () => {
-      const data = [10,15, 20, 20,10]
-      return data;
-    }
-    const generateData9 = () => {
-      const data = [15,10, 15, 10,20]
-      return data;
-    }
+
     this.state = {
 
       series: [{
-        name: 'شنبه',
-        data: generateData1(18, {
-          min: 0,
-          max: 90
-        })
-      },
-      {
-        name: 'یکشنبه',
-        data: generateData2(18, {
-          min: 0,
-          max: 90
-        })
-      },
-      {
-        name: 'دوشنبه',
-        data: generateData3(18, {
-          min: 0,
-          max: 90
-        })
-      },
-      {
-        name: 'سه شنبه',
-        data: generateData4(18, {
-          min: 0,
-          max: 90
-        })
-      },
-      {
-        name: 'چهارشنبه',
-        data: generateData5(18, {
-          min: 0,
-          max: 90
-        })
-      },
-      {
-        name: 'پنجشنبه',
-        data: generateData6(18, {
-          min: 0,
-          max: 90
-        })
-      },
-      {
-        name: 'جمعه',
-        data: generateData7(18, {
-          min: 0,
-          max: 90
-        })
-      },
-      ],
+        name: 'Inflation',
+        data: [100,80, 50, 70, 70, 10, 0]
+      }],
       options: {
         chart: {
           height: 350,
-          type: 'heatmap',
+          type: 'bar',
+        },
+        fill: {
+          colors: ['#9336B4']
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 10,
+            dataLabels: {
+              position: 'top', // top, center, bottom
+            },
+          }
         },
         dataLabels: {
-          enabled: false
+          enabled: true,
+          formatter: function (val) {
+            return val + "%";
+          },
+          offsetY: -20,
+          style: {
+            fontSize: '12px',
+            colors: ["#304758"]
+          }
         },
-        colors: ["#6f6be5"],
-        title: {
-          text: 'HeatMap Chart (Single color)'
+
+        xaxis: {
+          categories: ["شنبه", "یکشنبه", "دوشنبه", "سه شنبه", "چهارشنبه", "پنجشنبه", "جمعه"],
+          position: 'bottom',
+          axisBorder: {
+            show: false
+          },
+          axisTicks: {
+            show: false
+          },
+          tooltip: {
+            enabled: true,
+          }
         },
+        yaxis: {
+          axisBorder: {
+            show: false
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+            formatter: function (val) {
+              return val + "%";
+            }
+          }
+
+        }
       },
 
 
@@ -111,13 +74,12 @@ class ApexChart extends React.Component {
   }
 
 
-
   render() {
     return (
 
 
       <div id="chart">
-        <Chart options={this.state.options} series={this.state.series} type="heatmap" height={350} width={700} />
+        <Chart options={this.state.options} series={this.state.series} type="bar" height={400} width={"100%"} />
       </div>
 
 

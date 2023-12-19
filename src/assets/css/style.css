@@ -45,7 +45,9 @@ body {
     border: 5px solid #6f6be5;
     background-color: var(--lemon-transparent-color);
 }
-
+.shadow-custom {
+    box-shadow: 0 0 12px #d8cdd8;
+}
 
 /* col */
 .col-aside {
@@ -102,3 +104,6 @@ footer {
         margin: auto;
     }
 }
+
+
+/* chart js */
