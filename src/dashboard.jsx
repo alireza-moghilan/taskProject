@@ -20,7 +20,6 @@ export const Dashboard = (ev) => {
                 <div className=" row g-0">
                     {/* aside */}
                         <Aside />
-
                     {/* content */}
                     <div className="col">
                         <Navbar />
