@@ -1,12 +1,16 @@
 // logo
 import { Link, useLocation } from 'react-router-dom';
 import logoColorTwoCard from './assets/img/logoColorTwoCard.png';
+import { Navbar } from './topNavbar';
 
-export const Aside = (ev) => {
+export const Aside = (menuStatus) => {
     const location = useLocation();
+    const aside = ()=> {
+        console.log()
+    }
     return (
         <>
-            <aside style={{height:"100vh"}}>
+            <aside className="col-aside" style={{height:"100vh"}}>
                 <div className="d-flex flex-column flex-shrink-0 p-3 bg-light h-100 w-100 shadow">
                     <Link to={"/"} className="d-flex align-items-end mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                         <img src={logoColorTwoCard} className='w-25' alt="" />
