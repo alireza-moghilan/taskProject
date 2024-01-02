@@ -39,6 +39,16 @@ html,
 body {
     direction: rtl;
 }
+/* input {text-align: right;} */
+/* btn */
+.main-btn {
+    background: var(--main-color);
+    color: #fff;
+}
+.main-btn:hover {
+    background: var(--main-color-dark);
+    color: #fff;
+}
 
 .decoration-none {
     text-decoration: none;
@@ -117,6 +127,12 @@ footer {
     }
 }
 
+/* task */
+.task-scroll {
+    height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 
 /* data table */
 .data-table {
@@ -142,4 +158,9 @@ footer {
 
 .data-table>tr:nth-child(even) {
     background-color: #f2f2f2
+}
+
+/* bootstrap Custom */
+.active:hover {
+    background: var(--main-color-dark) !important;
 }

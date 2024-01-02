@@ -1,13 +1,18 @@
 // logo
 import { Link, useLocation } from 'react-router-dom';
 import logoColorTwoCard from './assets/img/logoColorTwoCard.png';
-import { Navbar } from './topNavbar';
+import hamburgerMenu from './topNavbar';
+import { useEffect } from 'react';
 
 export const Aside = (menuStatus) => {
     const location = useLocation();
-    const aside = ()=> {
-        console.log()
-    }
+    
+    // useEffect(()=> {
+    //     const aside = ()=> {
+    //         // console.log()
+    //     }
+    // },[])
+
     return (
         <>
             <aside className="col-aside" style={{height:"100vh"}}>
@@ -31,7 +36,7 @@ export const Aside = (menuStatus) => {
                             </Link>
                         </li>
                         <li className="nav-item mb-3">
-                            <Link to={"#"} className="nav-link link-dark">
+                            <Link to={"/newTask"} className={(location.pathname==="/newTask"?"active":"link-dark") +" nav-link "}>
                                 <span className="me-3"><i className="bi bi-list-task"></i></span>
                                 ثبت تسک روزانه جدید
                             </Link>

@@ -4,6 +4,7 @@ import { Aside } from "./aside"
 import { Footer } from "./footer"
 import { BoxLink } from "./boxLink"
 
+
 // img
 import calender from "./assets/img/3D/calender-dynamic-gradient.png"
 import target from "./assets/img/3D/target-dynamic-gradient.png"
@@ -12,6 +13,7 @@ import App from "./chartBar"
 import ApexChart from "./chartBar"
 import ChartBar from "./chartBar"
 import DataTable from "./dataTable"
+import { TaskCard } from "./taskCard"
 
 export const Dashboard = (ev) => {
     return (
@@ -19,7 +21,7 @@ export const Dashboard = (ev) => {
             <main className="container-custom">
                 <div className=" row g-0">
                     {/* aside */}
-                        <Aside />
+                    <Aside />
                     {/* content */}
                     <div className="col">
                         <Navbar />
@@ -45,7 +47,22 @@ export const Dashboard = (ev) => {
                                     </div>
                                 </div>
 
-                                {/* chart Bar */}
+                                <div className="col-5">
+                                    <div className="bg-white shadow-custom rounded-3 p-4">
+                                        <div className="mb-4">
+                                            <h3 className="fw-bold h6">تمام تسک ها</h3>
+                                            <hr />
+                                        </div>
+
+                                        <div className="task-scroll p-4">
+                                        <div className="row g-4">
+                                            <TaskCard colCard={"12"} />
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Table Task */}
                                 <div className="col-12">
                                     <div className="bg-white shadow-custom rounded-3 p-4 pb-2">
                                         <div className="mb-4">

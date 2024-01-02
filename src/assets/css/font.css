@@ -14,6 +14,12 @@ tspan,text {
 	font-family: KalamehWebFaNum !important;
 }
 
+/* toast */
+.Toastify__toast-body > div:last-child {
+	font-family: KalamehWebFaNum !important;
+	text-align: right !important;
+}
+
 .wrapper {
 	max-width: 900px;
 	margin: 20px auto;

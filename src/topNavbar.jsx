@@ -3,20 +3,36 @@ import Timer from "./timer"
 import { useState } from "react";
 import { Aside } from "./aside";
 
-export const Navbar = (props) => {
+// const hamburgerMenu = ()=> {
+//     // state
+//     const [menuStatus,setMenuStatus]=useState(false);
+//     if (menuStatus) {
+//         setMenuStatus(false)
+//         localStorage.setItem("menuStatus",false)
+//     }else {
+//         setMenuStatus(true)
+//         localStorage.setItem("menuStatus",true)
+//     }
+
+//     // console.log(localStorage)
+// }
+// export default hamburgerMenu();
+
+export const Navbar = () => {
     // state
-    const [menuStatus,setMenuStatus]=useState(true);
+    const [menuStatus,setMenuStatus]=useState(false);
+
     // link
     const location = useLocation();
 
-    
-    const Menu = ()=> {
+    const hamburgerMenu = () => {
         if (menuStatus) {
             setMenuStatus(false)
-        }else {
+            localStorage.setItem("menuStatus", false)
+        } else {
             setMenuStatus(true)
+            localStorage.setItem("menuStatus", true)
         }
-        return <Aside menuStatus={menuStatus}/>;
     }
     return (
         <>
@@ -24,22 +40,22 @@ export const Navbar = (props) => {
                 <div className="container">
                     <ul className="navbar-nav">
                         <li className="nav-item pe-4">
-                            <div onClick={Menu}>
-                                <i class="bi bi-list h2"></i>
+                            <div onClick={hamburgerMenu}>
+                                <i className="bi bi-list h2"></i>
                             </div>
                         </li>
                         <li className="nav-item pe-4">
-                            <a className={(location.pathname=="/home"?"active-bottom-line":"") + " nav-link"} href="">خانه</a>
+                            <a className={(location.pathname == "/home" ? "active-bottom-line" : "") + " nav-link"} href="">خانه</a>
                         </li>
                         <li className="nav-item pe-4">
-                            <a className={(location.pathname=="/aboute"?"active-bottom-line":"") + " nav-link"} href="">درباره ما</a>
+                            <a className={(location.pathname == "/aboute" ? "active-bottom-line" : "") + " nav-link"} href="">درباره ما</a>
                         </li>
                         <li className="nav-item pe-4">
-                            <a className={(location.pathname=="/setting"?"active-bottom-line":"") + " nav-link"} href="">تنظیمات</a>
+                            <a className={(location.pathname == "/setting" ? "active-bottom-line" : "") + " nav-link"} href="">تنظیمات</a>
                         </li>
                     </ul>
                     <div className="">
-                        <span className="me-4">{<Timer/>}</span>
+                        <span className="me-4">{<Timer />}</span>
                         <i className="bi bi-palette-fill"></i>
                     </div>
                 </div>

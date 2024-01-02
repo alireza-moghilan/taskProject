@@ -17,7 +17,7 @@ export const BoxLink = props => {
                             <h4 className='fw-bold text-black h5'>{props.title}</h4>
                         </div>
                         {/* <Link to={props.link} className='text-main mb-0 decoration-none'>
-                            <span className='me-2'>مشاهده</span> <i class="bi bi-arrow-left-circle"></i>
+                            <span className='me-2'>مشاهده</span> <i className="bi bi-arrow-left-circle"></i>
                         </Link> */}
                         <div className='text-main mb-0 d-flex'>
                             <small className='me-2'>{props.number}</small> 
