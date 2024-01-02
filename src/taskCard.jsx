@@ -8,7 +8,7 @@ export const TaskCard = (props) => {
     const [data, setData] = useState();
     const getData = async () => {
         try {
-            const result = await axios.get('http://localhost:3000/tasks')
+            const result = await axios.get('http://localhost:3000/tasks');
             const { data } = result;
             setData(data)
         }
@@ -35,7 +35,7 @@ export const TaskCard = (props) => {
                                 }
                             </h4>
                             <p>
-                                <span className="me-1">زمان شروع :</span>
+                                <span className="me-1">زمان ثبت :</span>
                                 <span className="fw-bolder">
                                     {
                                         index.startTime
@@ -58,9 +58,6 @@ export const TaskCard = (props) => {
         )
     }
     else {
-        if (data) {
-            toast.warning("تسکی یافت نشد");
-        }
         return <div className="text-center h4"><p>تسکی یافت نشد!</p></div>;
     }
 
