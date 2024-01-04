@@ -13,7 +13,10 @@ h1, h2, h3, h4, h5, h6{
 tspan,text {
 	font-family: KalamehWebFaNum !important;
 }
-
+/* font size */
+.f-12 {
+	font-size: 12px;
+}
 /* toast */
 .Toastify__toast-body > div:last-child {
 	font-family: KalamehWebFaNum !important;

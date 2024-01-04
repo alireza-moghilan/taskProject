@@ -32,19 +32,46 @@
 .text-purple-2 {
     color: var(--purple-color-2);
 }
-
-
 /* all class */
 html,
 body {
     direction: rtl;
+    overflow: hidden;
 }
-/* input {text-align: right;} */
+
+input,
+textarea {
+    box-shadow: 0 0 12px #d8cdd856;
+    border: 1px solid #cccccc52 !important;
+}
+
+/* scrollBar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--main-color-dark);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 /* btn */
 .main-btn {
     background: var(--main-color);
     color: #fff;
 }
+
 .main-btn:hover {
     background: var(--main-color-dark);
     color: #fff;
@@ -59,13 +86,13 @@ body {
 }
 
 .card-custom {
-    box-shadow: 0px 0 8px var(--main-color);
+    /* box-shadow: 0px 0 8px var(--main-color); */
     border: 5px solid #6f6be5;
-    background-color: var(--lemon-transparent-color);
+    /* background-color: var(--lemon-transparent-color); */
 }
 
 .shadow-custom {
-    box-shadow: 0 0 12px #d8cdd8;
+    box-shadow: 0 0 12px #d8cdd88c;
 }
 
 
@@ -93,7 +120,7 @@ body {
 
 footer {
     margin-top: auto !important;
-    box-shadow: -4px 0px 10px #d8cdd8;
+    box-shadow: -4px 0px 10px #d8cdd88c;
 }
 
 
@@ -133,7 +160,10 @@ footer {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-
+.type-task {
+    margin-top: -8px;
+    margin-bottom: 5px;
+}
 /* data table */
 .data-table {
     border-collapse: collapse;
@@ -147,17 +177,19 @@ footer {
     text-align: start;
     padding: 16px;
 }
+
 .data-table>tr>td {
     line-height: 24px;
     vertical-align: center;
 }
+
 .data-table>tr>.description {
     font-size: 13px;
 }
 
 
 .data-table>tr:nth-child(even) {
-    background-color: #f2f2f2
+    background-color: #6f6be533
 }
 
 /* bootstrap Custom */

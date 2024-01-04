@@ -1,8 +1,5 @@
-// import { useState } from "react";
 import axios from 'axios'
 import { useEffect, useState } from "react"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export const TaskCard = (props) => {
     const [data, setData] = useState();
@@ -25,7 +22,7 @@ export const TaskCard = (props) => {
     }, [])
     if (data && data.length > 0) {
         return data.map(index =>
-            <div className={props.colCard??"col-3"} key={index.id}>
+            <div className={props.colCard ?? "col-3"} key={index.id}>
                 <div className="bg-light p-4 rounded-3 shadow-custom">
                     <div className="mb-2">
                         <div className="d-flex justify-content-between">
@@ -52,6 +49,22 @@ export const TaskCard = (props) => {
                             index.description
                         }
                     </p>
+
+                    <hr />
+
+                    <div className='d-flex justify-content-between'>
+                        <div>
+                            <button className='btn border border-1 border-danger text-danger me-2'>
+                                <i class="bi bi-trash3 h6 d-flex aling-items-center mb-0 p-1 px-0"></i>
+                            </button>
+                            <button className='btn border border-1 border-warning text-warning'>
+                                <i class="bi bi-pencil-square h6 d-flex aling-items-center mb-0 p-1 px-0"></i>
+                            </button>
+                        </div>
+                        <button className='btn main-btn'>
+                            شروع تسک
+                        </button>
+                    </div>
                 </div>
 
             </div>

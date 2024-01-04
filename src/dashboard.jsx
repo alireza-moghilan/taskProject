@@ -54,7 +54,7 @@ export const Dashboard = (ev) => {
                                             <hr />
                                         </div>
 
-                                        <div className="task-scroll p-4">
+                                        <div className="task-scroll p-4 ps-2 pt-2">
                                         <div className="row g-4">
                                             <TaskCard colCard={"12"} />
                                         </div>

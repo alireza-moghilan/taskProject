@@ -16,7 +16,7 @@ export const Aside = (menuStatus) => {
     return (
         <>
             <aside className="col-aside" style={{height:"100vh"}}>
-                <div className="d-flex flex-column flex-shrink-0 p-3 bg-light h-100 w-100 shadow">
+                <div className="d-flex flex-column flex-shrink-0 p-3 bg-light h-100 w-100 shadow-custom">
                     <Link to={"/"} className="d-flex align-items-end mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                         <img src={logoColorTwoCard} className='w-25' alt="" />
                         <span className="fs-4 ms-3 mb-0 h6">تسکار</span>

@@ -2,9 +2,7 @@
 import { Navbar } from "./topNavbar"
 import { Aside } from "./aside"
 import { Footer } from "./footer"
-import { TaskCard } from "./taskCard"
 import axios from 'axios'
-
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,26 +10,29 @@ import { useEffect, useState } from "react"
 
 export const RegisteringDailyTask = () => {
     // state
-    const [Task, setTask] = useState({
+    const [saveId, setId] = useState(0);
+    const [inputTask, setInputTask] = useState({
+        id: saveId,
         subject: "",
         typeTask: "",
-        description: ""
+        description: "",
+        startTime: ""
     })
-    const [saveId,setId]=useState(0);
-
+    const [saveTask, setSaveTask] = useState([]);
 
     // onInput
     const onInput = ev => {
         // value Input
         const { name, value } = ev.target;
-        setTask({ ...Task, [name]: value });
+        setInputTask({ ...inputTask, [name]: value });
     }
     // get id 
-    const getId =async ev=> {
+    const getId = async ev => {
         try {
             const result = await axios.get('http://localhost:3000/tasks');
-            setId(result.data.length+1);
-        }catch {}
+            setId(result.data.length + 1);
+            setSaveTask(result.data);
+        } catch { }
     }
     useEffect(() => {
         const fetch = async () => {
@@ -40,33 +41,36 @@ export const RegisteringDailyTask = () => {
         fetch();
 
     }, [])
-    // Post Data Form
-    const addTask =async ev => {
-        // get id
-        let id = saveId;
+    const addTask = async ev => {
         // preventDefault
         ev.preventDefault();
+        // save data in state
+        // get id
+        let id = saveId;
         // time
-        const newtime = new Date().getHours()+":"+new Date().getMinutes();
+        const newtime = new Date().getHours() + ":" + new Date().getMinutes();
+        // set id and time
+        inputTask.id = id;
+        inputTask.startTime = newtime;
+        // add Task State
+        setSaveTask(inputTask)
+        const arrTask = [...saveTask];
+        arrTask.push(inputTask);
+        // add Array
+        setSaveTask(arrTask);
+
+        // Post Data
         try {
             // Post Data
-            const postData =await axios.post("http://localhost:3000/tasks", {
-                id:id,
-                subject: Task.subject,
-                startTime: newtime,
-                description: Task.description
-            })
-            
-            if (postData.status===201) {
-                console.log("a")
+            const postData = await axios.post("http://localhost:3000/tasks", inputTask)
+
+            if (postData.status === 201) {
                 toast.success("اطلاعات با موفقیت ثبت شد.");
             }
         }
         catch (error) {
             console.error(error)
         }
-
-        window.location.reload()
     }
 
     return (
@@ -81,6 +85,9 @@ export const RegisteringDailyTask = () => {
 
                         {/* Content */}
                         <section className="container p-5 content">
+                            <div>
+                                <h1 className="h3 fw-bold mb-4">افزودن تسک</h1>
+                            </div>
                             {/* form */}
                             <div className="p-4 rounded-3 shadow-custom mb-4" onSubmit={addTask}>
                                 <form action="" method="" className="row">
@@ -108,7 +115,72 @@ export const RegisteringDailyTask = () => {
                             <div>
                                 <div className="row g-4">
                                     {
-                                        <TaskCard />
+                                        saveTask.map(index =>
+                                            <div className={"col-3"} key={index.id}>
+                                                <div className="bg-light p-4 rounded-3 shadow-custom">
+                                                    <div className="mb-2">
+                                                        <div className="d-flex justify-content-between">
+                                                            <h4 className="fw-bold">
+                                                                {
+                                                                    index.subject
+                                                                }
+                                                            </h4>
+                                                            <p>
+                                                                <span className="me-1">زمان ثبت :</span>
+                                                                <span className="fw-bolder">
+                                                                    {
+                                                                        index.startTime
+                                                                    }
+                                                                </span>
+                                                            </p>
+                                                        </div>
+                                                        <hr />
+                                                    </div>
+
+                                                    <div>
+                                                        <div className="text-start type-task mb-2">
+                                                            <span className="f-12 fw-bold me-1">نوع تسک:</span>
+                                                            <span className="f-12 fw-bold">
+
+                                                                {
+                                                                    index.typeTask
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <p className="lh-lg">
+                                                                <span className="f-12 fw-bold me-1 mb-0">توضیحات:</span>
+                                                                {
+                                                                    index.description
+                                                                }
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr />
+
+                                                    <div className='d-flex justify-content-between'>
+                                                        <div>
+                                                            <button className='btn border border-1 border-danger text-danger me-2'>
+                                                                <i class="bi bi-trash3 h6 d-flex aling-items-center mb-0 p-1 px-0"></i>
+                                                            </button>
+                                                            <button className='btn border border-1 border-warning text-warning'>
+                                                                <i class="bi bi-pencil-square h6 d-flex aling-items-center mb-0 p-1 px-0"></i>
+                                                            </button>
+                                                        </div>
+                                                        <button className='btn main-btn'>
+                                                            شروع تسک
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        )
+                                    }
+                                    {
+                                        saveTask && saveTask.length == 0 &&
+                                        <div className="text-center h4"><p>تسکی یافت نشد!</p></div>
+
                                     }
                                     {
                                         <ToastContainer />

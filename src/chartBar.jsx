@@ -17,7 +17,7 @@ class ChartBar extends React.Component {
           type: 'bar',
         },
         fill: {
-          colors: ['#9336B4']
+          colors: ['#4b48a4']
         },
         plotOptions: {
           bar: {
