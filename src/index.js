@@ -24,7 +24,7 @@ root.render(
         <Route path={"/"} element={<Dashboard />} />
         <Route path={"/dashboard"} element={<Dashboard />} />
         <Route path={"/newTask"} element={<RegisteringDailyTask />} />
-      </Routes>
+              </Routes>
     </BrowserRouter>
     {/* <HomePage/> */}
   </>

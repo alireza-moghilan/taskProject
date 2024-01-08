@@ -14,7 +14,7 @@ export const TaskCard = (props) => {
         }
     }
     useEffect(() => {
-        const fetch = async () => {
+      const fetch = async () => {
             await getData();
         }
         fetch();
@@ -54,11 +54,9 @@ export const TaskCard = (props) => {
 
                     <div className='d-flex justify-content-between'>
                         <div>
-                            <button className='btn border border-1 border-danger text-danger me-2'>
-                                <i class="bi bi-trash3 h6 d-flex aling-items-center mb-0 p-1 px-0"></i>
-                            </button>
+                            <DeleteTask id={index.id} />
                             <button className='btn border border-1 border-warning text-warning'>
-                                <i class="bi bi-pencil-square h6 d-flex aling-items-center mb-0 p-1 px-0"></i>
+                                <i className="bi bi-pencil-square h6 d-flex aling-items-center mb-0 p-1 px-0"></i>
                             </button>
                         </div>
                         <button className='btn main-btn'>

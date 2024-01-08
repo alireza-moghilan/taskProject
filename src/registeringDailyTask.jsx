@@ -7,6 +7,7 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from "react"
+import { DeleteTask } from "./deleteTask";
 
 export const RegisteringDailyTask = () => {
     // state
@@ -161,11 +162,9 @@ export const RegisteringDailyTask = () => {
 
                                                     <div className='d-flex justify-content-between'>
                                                         <div>
-                                                            <button className='btn border border-1 border-danger text-danger me-2'>
-                                                                <i class="bi bi-trash3 h6 d-flex aling-items-center mb-0 p-1 px-0"></i>
-                                                            </button>
+                                                            <DeleteTask id={index.id} />
                                                             <button className='btn border border-1 border-warning text-warning'>
-                                                                <i class="bi bi-pencil-square h6 d-flex aling-items-center mb-0 p-1 px-0"></i>
+                                                                <i className="bi bi-pencil-square h6 d-flex aling-items-center mb-0 p-1 px-0"></i>
                                                             </button>
                                                         </div>
                                                         <button className='btn main-btn'>
