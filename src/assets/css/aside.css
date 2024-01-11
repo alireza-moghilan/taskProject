@@ -1,0 +1,49 @@
+/* col */
+.col-aside {
+    flex: 0 0 auto;
+    width: 19%;
+    transition: 0.7s;
+}
+.col-aside>div>ul>li>a>.text-link {
+    text-wrap: nowrap;
+    white-space: nowrap !important;
+}
+.col-aside>div>ul>li>a {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.logo-aside {
+    width: 70px !important;
+}
+/* Close Aside */
+.aside-close {
+    flex: 0 0 auto;
+    width: 7%;
+    transition: 0.7s;
+}
+.aside>div>ul>.nav-item {
+    overflow: hidden;
+    width: 100% !important;
+}
+/* brand */
+.aside-close>div>.brand>img {
+    width: 70px !important;
+}
+.aside-close>div>.brand>span {
+    display: none;
+}
+.aside-close>div>ul>li {
+    width: 100%;
+}
+.aside-close>div>ul>li>a {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+.aside-close>div>ul>li>a>.text-link {
+    display: none;
+    text-wrap: nowrap;
+}
+.aside-close>div>ul>li>a>.icon-aside {
+    margin: 0 !important;
+}

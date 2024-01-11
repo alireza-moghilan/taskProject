@@ -45,6 +45,9 @@ textarea {
     border: 1px solid #cccccc52 !important;
 }
 
+.pointer{
+    cursor: pointer;  
+}
 /* scrollBar */
 /* width */
 ::-webkit-scrollbar {
@@ -93,14 +96,6 @@ textarea {
 
 .shadow-custom {
     box-shadow: 0 0 12px #d8cdd88c;
-}
-
-
-
-/* col */
-.col-aside {
-    flex: 0 0 auto;
-    width: 19%;
 }
 
 /* bootstrap */

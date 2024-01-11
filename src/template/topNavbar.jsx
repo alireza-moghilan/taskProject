@@ -2,6 +2,8 @@ import { useLocation } from "react-router-dom"
 import Timer from "../timer"
 import { useState } from "react";
 import { Aside } from "./aside";
+import { useContext } from "react";
+import { conText } from "../routes/routes";
 
 // const hamburgerMenu = ()=> {
 //     // state
@@ -19,20 +21,15 @@ import { Aside } from "./aside";
 // export default hamburgerMenu();
 
 export const Navbar = () => {
-    // state
-    const [menuStatus,setMenuStatus]=useState(false);
+
+    // use ConText
+    const menu = useContext(conText);
 
     // link
     const location = useLocation();
 
     const hamburgerMenu = () => {
-        if (menuStatus) {
-            setMenuStatus(false)
-            localStorage.setItem("menuStatus", false)
-        } else {
-            setMenuStatus(true)
-            localStorage.setItem("menuStatus", true)
-        }
+        menu.menuMode === true ? menu.setMenuMode(false) : menu.setMenuMode(true)
     }
     return (
         <>
@@ -40,7 +37,7 @@ export const Navbar = () => {
                 <div className="container">
                     <ul className="navbar-nav">
                         <li className="nav-item pe-4">
-                            <div onClick={hamburgerMenu}>
+                            <div className="pointer" onClick={hamburgerMenu}>
                                 <i className="bi bi-list h2"></i>
                             </div>
                         </li>

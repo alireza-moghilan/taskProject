@@ -1,7 +1,7 @@
 // import
-import { Navbar } from "./topNavbar"
-import { Aside } from "./aside"
-import { Footer } from "./footer"
+import { Navbar } from "./template/topNavbar"
+import { Aside } from "./template/aside"
+import { Footer } from "./template/footer"
 import axios from 'axios'
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,7 +11,7 @@ import { DeleteTask } from "./deleteTask";
 
 export const RegisteringDailyTask = () => {
     // state
-    const [saveId, setId] = useState(0);
+    const [saveId, setIdTask] = useState(0);
     const [inputTask, setInputTask] = useState({
         id: saveId,
         subject: "",
@@ -27,11 +27,12 @@ export const RegisteringDailyTask = () => {
         const { name, value } = ev.target;
         setInputTask({ ...inputTask, [name]: value });
     }
+
     // get id 
-    const getId = async ev => {
+    const getId = async () => {
         try {
             const result = await axios.get('http://localhost:3000/tasks');
-            setId(result.data.length + 1);
+            setIdTask(result.data.length);
             setSaveTask(result.data);
         } catch { }
     }
@@ -42,23 +43,30 @@ export const RegisteringDailyTask = () => {
         fetch();
 
     }, [])
+
+    var id = 0;
+    // Add Task
     const addTask = async ev => {
         // preventDefault
         ev.preventDefault();
-        // save data in state
         // get id
-        let id = saveId;
         // time
         const newtime = new Date().getHours() + ":" + new Date().getMinutes();
         // set id and time
-        inputTask.id = id;
-        inputTask.startTime = newtime;
+        ++id;
+        console.log(id)
+        const it = { ...inputTask };
+        it.id = id;
+        it.startTime = newtime;
+        // change id Task   
+        //setIdTask(id)
         // add Task State
-        setSaveTask(inputTask)
-        const arrTask = [...saveTask];
-        arrTask.push(inputTask);
-        // add Array
+        // 
+        // const arrTask=[]
+        setInputTask(it)
+        const arrTask = [...saveTask, it];
         setSaveTask(arrTask);
+
 
         // Post Data
         try {
@@ -76,125 +84,105 @@ export const RegisteringDailyTask = () => {
 
     return (
         <>
-            <main className="container-custom">
-                <div className=" row g-0">
-                    {/* aside */}
-                    <Aside />
-                    {/* content */}
-                    <div className="col">
-                        <Navbar />
-
-                        {/* Content */}
-                        <section className="container p-5 content">
-                            <div>
-                                <h1 className="h3 fw-bold mb-4">افزودن تسک</h1>
-                            </div>
-                            {/* form */}
-                            <div className="p-4 rounded-3 shadow-custom mb-4" onSubmit={addTask}>
-                                <form action="" method="" className="row">
-                                    <div className="col-4 mb-3">
-                                        <label htmlFor="" className="form-label">موضوع</label>
-                                        <input type="text" className="form-control" id="" placeholder="موضوع" name="subject" onInput={onInput} />
-                                    </div>
-                                    <div className="col-4 mb-3">
-                                        <label htmlFor="" className="form-label">نوع تسک</label>
-                                        <input type="text" className="form-control" id="" placeholder="تسک برای چه شاخه ایی است؟" name="typeTask" onInput={onInput} />
-                                    </div>
-                                    <div className="col-12 mb-3">
-                                        <label htmlFor="" className="form-label">توضیحات</label>
-                                        <textarea className="form-control" id="" rows="3" placeholder="توضیحات تکمیلی ... " name="description" onInput={onInput}></textarea>
-                                    </div>
-                                    <div className="d-flex justify-content-end">
-                                        <button type="submit" className="btn main-btn px-5">
-                                            ثبت تسک
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-
-                            {/* task */}
-                            <div>
-                                <div className="row g-4">
-                                    {
-                                        saveTask.map(index =>
-                                            <div className={"col-3"} key={index.id}>
-                                                <div className="bg-light p-4 rounded-3 shadow-custom">
-                                                    <div className="mb-2">
-                                                        <div className="d-flex justify-content-between">
-                                                            <h4 className="fw-bold">
-                                                                {
-                                                                    index.subject
-                                                                }
-                                                            </h4>
-                                                            <p>
-                                                                <span className="me-1">زمان ثبت :</span>
-                                                                <span className="fw-bolder">
-                                                                    {
-                                                                        index.startTime
-                                                                    }
-                                                                </span>
-                                                            </p>
-                                                        </div>
-                                                        <hr />
-                                                    </div>
-
-                                                    <div>
-                                                        <div className="text-start type-task mb-2">
-                                                            <span className="f-12 fw-bold me-1">نوع تسک:</span>
-                                                            <span className="f-12 fw-bold">
-
-                                                                {
-                                                                    index.typeTask
-                                                                }
-                                                            </span>
-                                                        </div>
-                                                        <div>
-                                                            <p className="lh-lg">
-                                                                <span className="f-12 fw-bold me-1 mb-0">توضیحات:</span>
-                                                                {
-                                                                    index.description
-                                                                }
-                                                            </p>
-                                                        </div>
-                                                    </div>
-
-                                                    <hr />
-
-                                                    <div className='d-flex justify-content-between'>
-                                                        <div>
-                                                            <DeleteTask id={index.id} />
-                                                            <button className='btn border border-1 border-warning text-warning'>
-                                                                <i className="bi bi-pencil-square h6 d-flex aling-items-center mb-0 p-1 px-0"></i>
-                                                            </button>
-                                                        </div>
-                                                        <button className='btn main-btn'>
-                                                            شروع تسک
-                                                        </button>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        )
-                                    }
-                                    {
-                                        saveTask && saveTask.length == 0 &&
-                                        <div className="text-center h4"><p>تسکی یافت نشد!</p></div>
-
-                                    }
-                                    {
-                                        <ToastContainer />
-                                    }
-                                </div>
-
-                            </div>
-                        </section>
-
-
-
-                        <Footer />
-                    </div>
+            <div>
+                <div>
+                    <h1 className="h3 fw-bold mb-4">افزودن تسک</h1>
                 </div>
-            </main>
+                {/* form */}
+                <div className="p-4 rounded-3 shadow-custom mb-4" onSubmit={addTask}>
+                    <form action="" method="" className="row">
+                        <div className="col-4 mb-3">
+                            <label htmlFor="" className="form-label">موضوع</label>
+                            <input type="text" className="form-control" id="" placeholder="موضوع" name="subject" onInput={onInput} />
+                        </div>
+                        <div className="col-4 mb-3">
+                            <label htmlFor="" className="form-label">نوع تسک</label>
+                            <input type="text" className="form-control" id="" placeholder="تسک برای چه شاخه ایی است؟" name="typeTask" onInput={onInput} />
+                        </div>
+                        <div className="col-12 mb-3">
+                            <label htmlFor="" className="form-label">توضیحات</label>
+                            <textarea className="form-control" id="" rows="3" placeholder="توضیحات تکمیلی ... " name="description" onInput={onInput}></textarea>
+                        </div>
+                        <div className="d-flex justify-content-end">
+                            <button type="submit" className="btn main-btn px-5">
+                                ثبت تسک
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                {/* task */}
+                <div>
+                    <div className="row g-4">
+                        {
+                            saveTask.map(index =>
+                                <div className={"col-3"} key={index.id}>
+                                    <div className="bg-light p-4 rounded-3 shadow-custom">
+                                        <div className="mb-2">
+                                            <div className="d-flex justify-content-between">
+                                                <h4 className="fw-bold">
+                                                    {
+                                                        index.subject
+                                                    }
+                                                </h4>
+                                                <p>
+                                                    <span className="me-1">زمان ثبت :</span>
+                                                    <span className="fw-bolder">
+                                                        {
+                                                            index.startTime
+                                                        }
+                                                    </span>
+                                                </p>
+                                            </div>
+                                            <hr />
+                                        </div>
+
+                                        <div>
+                                            <div className="text-start type-task mb-2">
+                                                <span className="f-12 fw-bold me-1">نوع تسک:</span>
+                                                <span className="f-12 fw-bold">
+
+                                                    {
+                                                        index.typeTask
+                                                    }
+                                                </span>
+                                            </div>
+                                            <div>
+                                                <p className="lh-lg">
+                                                    <span className="f-12 fw-bold me-1 mb-0">توضیحات:</span>
+                                                    {
+                                                        index.description
+                                                    }
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <hr />
+
+                                        <div className='d-flex justify-content-between'>
+                                            <div>
+                                                <DeleteTask id={index.id} />
+                                                <button className='btn border border-1 border-warning text-warning'>
+                                                    <i className="bi bi-pencil-square h6 d-flex aling-items-center mb-0 p-1 px-0"></i>
+                                                </button>
+                                            </div>
+                                            <button className='btn main-btn'>
+                                                شروع تسک
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            )
+                        }
+                        {
+                            saveTask && saveTask.length == 0 &&
+                            <div className="text-center h4"><p>تسکی یافت نشد!</p></div>
+                        }
+                    </div>
+
+                </div>
+            </div>
         </>
     )
 }

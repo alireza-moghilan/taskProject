@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from "react"
+import { DeleteTask } from './deleteTask';
 
 export const TaskCard = (props) => {
     const [data, setData] = useState();

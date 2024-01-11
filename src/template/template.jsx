@@ -15,10 +15,12 @@ export const Template = props => {
                         <Navbar />
 
                         {/* Content */}
-                        <section className="container p-5 content">
+                        <section className="content p-5 ">
+                            <div className="container">
                             {
                                 props.children
                             }
+                            </div>
                         </section>
 
                         <Footer />

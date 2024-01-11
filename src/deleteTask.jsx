@@ -10,7 +10,7 @@ export const DeleteTask = (props) => {
         try {
             await axios.delete(`http://localhost:3000/tasks/${id}`);
         }catch(error){console.error(error)}
-        // console.log(id)
+        console.log(id)
     }
 
     return (
