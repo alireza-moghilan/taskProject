@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-// react Component
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 // bootstrap
 import '../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css';
@@ -12,21 +10,14 @@ import './assets/css/style.css';
 import './assets/css/reset.css';
 import './assets/css/font.css';
 // component
-import { Dashboard } from './dashboard';
-import ApexChart from './chartBar';
-import {RegisteringDailyTask} from './registeringDailyTask';
+import AppRoutes from './routes/routes';
+import { ToastContainer } from 'react-toastify';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <BrowserRouter>
-      <Routes>
-        <Route path={"/"} element={<Dashboard />} />
-        <Route path={"/dashboard"} element={<Dashboard />} />
-        <Route path={"/newTask"} element={<RegisteringDailyTask />} />
-              </Routes>
-    </BrowserRouter>
-    {/* <HomePage/> */}
+    <AppRoutes />
+    <ToastContainer />
   </>
 );
 
