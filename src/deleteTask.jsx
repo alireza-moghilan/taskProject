@@ -1,6 +1,5 @@
 // import
-import axios from 'axios'
-
+import { client } from './services/appAxios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from "react"
@@ -8,7 +7,7 @@ import { useEffect, useState } from "react"
 export const DeleteTask = (props) => {
     const deleteTaskFun = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/tasks/${id}`);
+            await client.delete(`tasks/${id}`);
         }catch(error){console.error(error)}
         console.log(id)
     }

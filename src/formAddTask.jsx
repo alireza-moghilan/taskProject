@@ -1,11 +1,8 @@
 // import
-import axios from 'axios'
-
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from "react"
-import Context from './context/myContext';
-import { TaskCard } from './taskCard';
+import { client } from './services/appAxios';
+import { toast } from 'react-toastify';
 
 export const FormAddTask = () => {
     // state
@@ -17,7 +14,6 @@ export const FormAddTask = () => {
         description: "",
         startTime: ""
     })
-    const [saveTask, setSaveTask] = useState([]);
 
     // onInput
     const onInput = ev => {
@@ -26,62 +22,29 @@ export const FormAddTask = () => {
         setInputTask({ ...inputTask, [name]: value });
     }
 
-    // get id 
-    const getId = async () => {
-        try {
-            const result = await axios.get('http://localhost:3000/tasks');
-            setIdTask(result.data.length);
-            setSaveTask(result.data);
-        } catch { }
-    }
-    useEffect(() => {
-        const fetch = async () => {
-            await getId();
-        }
-        fetch();
-
-    }, [])
-
     // Add Task
     const addTask = async ev => {
         // preventDefault
         ev.preventDefault();
-        // get id
-        let id = saveId;
         // time
         const newtime = new Date().getHours() + ":" + new Date().getMinutes();
         // set id and time
-        inputTask.id = ++id;
-        inputTask.startTime = newtime;
-        // change id Task   
-        // setIdTask(id)
-        // add Task State
-        setSaveTask(inputTask)
-        // 
-        // const arrTask=[]
-        if (saveTask.length == 0) {
-            setSaveTask([inputTask]);
-            console.log(saveTask)
-        }
-        else {
-            const arrTask = [...saveTask];
-            arrTask.push(inputTask);
-            // add Array
-            setSaveTask(arrTask);
-        }
+        const it = { ...inputTask };
+        it.startTime = newtime;
+
 
         // Post Data
-        // try {
-        //     // Post Data
-        //     const postData = await axios.post("http://localhost:3000/tasks", inputTask)
+        try {
+            // Post Data
+            const postData = await client.post('/tasks',it)
 
-        //     if (postData.status === 201) {
-        //         toast.success("اطلاعات با موفقیت ثبت شد.");
-        //     }
-        // }
-        // catch (error) {
-        //     console.error(error)
-        // }
+            if (postData.status === 201) {
+                toast.success("اطلاعات با موفقیت ثبت شد.");
+            }
+        }
+        catch (error) {
+            console.error(error)
+        }
     }
 
 

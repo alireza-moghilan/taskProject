@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { client } from "./services/appAxios";
 import { useEffect, useState } from "react"
 import { DeleteTask } from './deleteTask';
 
@@ -6,7 +6,7 @@ export const TaskCard = (props) => {
     const [data, setData] = useState();
     const getData = async () => {
         try {
-            const result = await axios.get('http://localhost:3000/tasks');
+            const result = await client.get('/tasks');
             const { data } = result;
             setData(data)
         }
@@ -20,7 +20,7 @@ export const TaskCard = (props) => {
         }
         fetch();
 
-    }, [])
+    }, [getData])
     if (data && data.length > 0) {
         return data.map(index =>
             <div className={props.colCard ?? "col-3"} key={index.id}>
