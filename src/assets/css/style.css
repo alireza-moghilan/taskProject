@@ -80,6 +80,11 @@ textarea {
     color: #fff;
 }
 
+.main-btn:focus {
+    background: var(--main-color-dark);
+    color: #fff;
+}
+
 .decoration-none {
     text-decoration: none;
 }

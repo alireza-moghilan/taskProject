@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom"
-import Timer from "../timer"
+import Timer from "../components/timer/timer"
 import { useState } from "react";
 import { Aside } from "./aside";
 import { useContext } from "react";

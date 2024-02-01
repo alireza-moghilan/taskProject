@@ -12,7 +12,7 @@ import '../node_modules/bootstrap-icons/font/bootstrap-icons.min.css'
 // font
 import './assets/css/style.css';
 import './assets/css/reset.css';
-import './assets/css/font.css';
+import './assets/css/font/font.css';
 import './assets/css/aside.css';
 // component
 import AppRoutes from './routes/routes';

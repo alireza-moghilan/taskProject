@@ -1,5 +1,5 @@
 // import
-import { client } from './services/appAxios';
+import { client } from '../../../services/appAxios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from "react"

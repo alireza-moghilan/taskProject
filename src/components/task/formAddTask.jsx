@@ -1,7 +1,7 @@
 // import
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from "react"
-import { client } from './services/appAxios';
+import { client } from '../../services/appAxios';
 import { toast } from 'react-toastify';
 
 export const FormAddTask = () => {

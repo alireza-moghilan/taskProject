@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { createContext } from "react"
 // react Component
 import { Template } from "../template/template"
-import { Dashboard } from "../dashboard"
-import { RegisteringDailyTask } from "../registeringDailyTask"
+import { Dashboard } from "../components/home/dashboard"
+import { RegisteringDailyTask } from "../components/task/registeringDailyTask"
 // store
 import { menuState } from "../context/conText"
 import { useState } from "react"

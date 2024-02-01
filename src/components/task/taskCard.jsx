@@ -1,6 +1,6 @@
-import { client } from "./services/appAxios";
+import { client } from "../../services/appAxios";
 import { useEffect, useState } from "react"
-import { DeleteTask } from './deleteTask';
+import { DeleteTask } from './deleteTask/deleteTask';
 
 export const TaskCard = (props) => {
     const [data, setData] = useState();

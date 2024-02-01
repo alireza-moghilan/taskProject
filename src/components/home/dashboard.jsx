@@ -1,16 +1,14 @@
 // import
-import { BoxLink } from "./boxLink"
+import { BoxLink } from "../card/boxLink"
 
 
 // img
-import calender from "./assets/img/3D/calender-dynamic-gradient.png"
-import target from "./assets/img/3D/target-dynamic-gradient.png"
-import totalTask from "./assets/img/3D/fav-folder-dynamic-gradient.png"
-import App from "./chartBar"
-import ApexChart from "./chartBar"
+import calender from "../../assets/img/3D/calender-dynamic-gradient.png"
+import target from "../../assets/img/3D/target-dynamic-gradient.png"
+import totalTask from "../../assets/img/3D/fav-folder-dynamic-gradient.png"
 import ChartBar from "./chartBar"
 import DataTable from "./dataTable"
-import { TaskCard } from "./taskCard"
+import { TaskCard } from "../task/taskCard"
 
 export const Dashboard = (ev) => {
     return (

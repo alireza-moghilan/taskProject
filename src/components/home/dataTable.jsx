@@ -1,5 +1,5 @@
 //import
-import { client } from './services/appAxios';
+import { client } from '../../services/appAxios';
 import { useEffect, useState } from "react"
 
 const DataTable = (ev) => {
