@@ -1,5 +1,5 @@
 //import
-import axios from 'axios'
+import { client } from './services/appAxios';
 import { useEffect, useState } from "react"
 
 const DataTable = (ev) => {
@@ -7,10 +7,9 @@ const DataTable = (ev) => {
     const [data, setData] = useState([]);
     const getData = async () => {
         try {
-            const result = await axios.get('http://localhost:3000/tasks');
+            const result = await client.get("/tasks");
             const data = result.data;
             setData(data)
-            console.log(data)
         }
         catch (e) {
             console.log(e)
@@ -22,7 +21,7 @@ const DataTable = (ev) => {
         }
         fetch();
 
-    }, [])
+    }, [getData])
     return (
         <>
             <div className="overflow-auto">

@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
+import { createStore } from "redux"
+import { Reducer } from './reducers';
+import { Provider } from "react-redux"
+
 
 // bootstrap
 import '../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css';
@@ -14,11 +18,12 @@ import './assets/css/aside.css';
 import AppRoutes from './routes/routes';
 import { ToastContainer } from 'react-toastify';
 
+// export const store = createStore(Reducer)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <AppRoutes />
-    <ToastContainer />
+      <AppRoutes />
+      <ToastContainer />
   </>
 );
 

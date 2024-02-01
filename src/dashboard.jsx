@@ -1,7 +1,4 @@
 // import
-import { Navbar } from "./template/topNavbar"
-import { Aside } from "./template/aside"
-import { Footer } from "./template/footer"
 import { BoxLink } from "./boxLink"
 
 
