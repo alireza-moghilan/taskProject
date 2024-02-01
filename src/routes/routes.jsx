@@ -14,10 +14,10 @@ export const conText = createContext(menuState);
 
 const AppRoutes = () => {
 
-    const [menuMode,setMenuMode]=useState(false)
+    const [menuMode, setMenuMode] = useState(false)
 
     return (
-        <conText.Provider value={{menuMode,setMenuMode}}>
+        <conText.Provider value={{ menuMode, setMenuMode }}>
             <BrowserRouter>
                 <Routes>
                     <Route path={"/"} element={<Template><Dashboard /></Template>} />
