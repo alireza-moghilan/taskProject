@@ -9,8 +9,13 @@ import totalTask from "../../assets/img/3D/fav-folder-dynamic-gradient.png"
 import ChartBar from "./chartBar"
 import DataTable from "./dataTable"
 import { TaskCard } from "../task/taskCard"
+import { useEffect } from "react"
 
 export const Dashboard = (ev) => {
+    useEffect(()=>{
+        document.querySelector('html').style.overflow = "";
+        document.querySelector('body').style.overflow = "";
+    },[])
     return (
         <>
             {/* Content */}

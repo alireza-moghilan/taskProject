@@ -1,31 +1,19 @@
-import { useLocation } from "react-router-dom"
-import Timer from "../components/timer/timer"
-import { useContext } from "react";
-import { conText } from "../routes/routes";
+// import img
+import logoColorTwoCard from '../assets/img/logoColorTwoCard.png';
+// import
+import { Link, useLocation } from 'react-router-dom';
 
-export const Navbar = () => {
-
-    // use ConText
-    const menu = useContext(conText);
-
+export const TopNavbarError404 = () => {
+    
     // link
     const location = useLocation();
-
-    const hamburgerMenu = () => {
-        menu.menuMode === true ? menu.setMenuMode(false) : menu.setMenuMode(true)
-    }
     return (
         <>
             <nav className="d-flex align-items-center justify-content-between navbar navbar-expand-lg bg-body-tertiary p-3 shadow-sm">
                 <div className="container">
                     <ul className="navbar-nav">
                         <li className="nav-item pe-4">
-                            <div className="pointer" onClick={hamburgerMenu}>
-                                <i className="bi bi-list h2"></i>
-                            </div>
-                        </li>
-                        <li className="nav-item pe-4">
-                            <a className={(location.pathname == "/home" ? "active-bottom-line" : "") + " nav-link"} href="">خانه</a>
+                            <Link to={"/"} className={(location.pathname == "/home" ? "active-bottom-line" : "") + " nav-link"} >خانه</Link>
                         </li>
                         <li className="nav-item pe-4">
                             <a className={(location.pathname == "/aboute" ? "active-bottom-line" : "") + " nav-link"} href="">درباره ما</a>
@@ -35,8 +23,7 @@ export const Navbar = () => {
                         </li>
                     </ul>
                     <div className="">
-                        <span className="me-4">{<Timer />}</span>
-                        <i className="bi bi-palette-fill"></i>
+                        <img src={logoColorTwoCard} className='logo-aside' alt="Logo" />
                     </div>
                 </div>
             </nav>

@@ -9,6 +9,14 @@
     color: var(--main-color);
 }
 
+.bg-main-dark {
+    background-color: var(--main-color-dark);
+}
+
+.text-main-dark {
+    color: var(--main-color-dark);
+}
+
 .bg-lemon {
     background-color: var(--lemon-color);
 }
