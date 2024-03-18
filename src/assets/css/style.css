@@ -56,6 +56,10 @@ textarea {
 .pointer{
     cursor: pointer;  
 }
+
+.ltr {
+    direction: ltr;
+}
 /* scrollBar */
 /* width */
 ::-webkit-scrollbar {
@@ -172,6 +176,18 @@ footer {
     margin-top: -8px;
     margin-bottom: 5px;
 }
+
+/* Task settings */
+.task-settings {
+    position: fixed;
+    left: 3%;
+    bottom: 16%;
+}
+
+.task-settings>div {
+    
+}
+
 /* data table */
 .data-table {
     border-collapse: collapse;

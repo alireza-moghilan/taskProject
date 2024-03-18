@@ -12,7 +12,11 @@ export const FormAddTask = () => {
         subject: "",
         typeTask: "",
         description: "",
-        startTime: ""
+        timeRegisterTheTask: "",
+        startTask:false,
+        endTask:false,
+        timeStartTask:"",
+        timeEndTask:""
     })
 
     // onInput
@@ -29,15 +33,16 @@ export const FormAddTask = () => {
         // time
         const newtime = new Date().getHours() + ":" + new Date().getMinutes();
         // set id and time
-        const it = { ...inputTask };
-        it.startTime = newtime;
+        const task = { ...inputTask };
+        task.timeRegisterTheTask = newtime;
 
 
         // Post Data
         try {
             // Post Data
-            const postData = await client.post('/tasks',it)
+            const postData = await client.post('/tasks',task)
 
+            // Checked status
             if (postData.status === 201) {
                 toast.success("اطلاعات با موفقیت ثبت شد.");
             }
