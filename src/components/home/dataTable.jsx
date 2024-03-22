@@ -44,8 +44,8 @@ const DataTable = (ev) => {
                         data.map(index =>
                             <tr key={index.id}>
                                 <td>{index.subject}</td>
-                                <td>{index.startTime}</td>
-                                <td>{index.startTime}</td>
+                                <td>{index.timeStartTask}</td>
+                                <td>{index.timeEndTask}</td>
                                 <td>{"1 دقیقه"}</td>
                                 <td>{index.description}</td>
                             </tr>
