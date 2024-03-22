@@ -1,6 +1,8 @@
 //import
 import { client } from '../../services/appAxios';
 import { useEffect, useState } from "react"
+// import SecondsCounter from '../timer/secondsCounter';
+import { hoursToMinute, minuteToHours, timeDifferenceInHours } from '../timer/hoursCalculate';
 
 const DataTable = (ev) => {
 
@@ -22,6 +24,10 @@ const DataTable = (ev) => {
         fetch();
 
     }, [getData])
+
+    const timeDifferenceFun = (startTime,endTime) => {
+        return timeDifferenceInHours(startTime,endTime)
+    }
     return (
         <>
             <div className="overflow-auto">
@@ -46,7 +52,11 @@ const DataTable = (ev) => {
                                 <td>{index.subject}</td>
                                 <td>{index.timeStartTask}</td>
                                 <td>{index.timeEndTask}</td>
-                                <td>{"1 دقیقه"}</td>
+                                <td>
+                                    {
+                                        index.timeEndTask!=""?timeDifferenceFun(index.timeStartTask,index.timeEndTask):`تسک هنوز به پایان نرسیده ( ${timeDifferenceFun(index.timeStartTask,index.timeEndTask)} سپری شده)`
+                                    }
+                                    </td>
                                 <td>{index.description}</td>
                             </tr>
                             // console.log(index.id)

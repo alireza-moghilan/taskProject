@@ -33,7 +33,7 @@ export const TaskCard = (props) => {
     // Checked data and data length
     if (data && data.length > 0) {
         return data.map(index =>
-            <div className={props.colCard ?? "col-4"} key={index.id}>
+            <div className={props.colCard ?? "col-xxl-4 col-md-6 col-sm-12"} key={index.id}>
                 <div className="bg-light p-4 rounded-3 shadow-custom">
                     <div className="mb-2">
                         <div className="d-flex justify-content-between">

@@ -1,4 +1,5 @@
 // Component
+import { TaskSettings } from "../components/task/taskSettings"
 import { Aside } from "./aside"
 import { Footer } from "./footer"
 import { Navbar } from "./topNavbar"
@@ -22,6 +23,8 @@ export const Template = props => {
                             }
                             </div>
                         </section>
+
+                        <TaskSettings />
 
                         <Footer />
                     </div>
