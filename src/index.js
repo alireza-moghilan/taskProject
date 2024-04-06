@@ -8,22 +8,32 @@ import { Provider } from "react-redux"
 
 // bootstrap
 import '../node_modules/bootstrap/dist/css/bootstrap.rtl.min.css';
-import '../node_modules/bootstrap-icons/font/bootstrap-icons.min.css'
-// font
+import '../node_modules/bootstrap-icons/font/bootstrap-icons.min.css';
+
+// custom style
 import './assets/css/style.css';
 import './assets/css/reset.css';
-import './assets/css/font/font.css';
 import './assets/css/aside.css';
+
+// font
+import './assets/css/font/font.css';
+
+// JavaScript 
+// bootstrap js
+import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
+
 // component
 import AppRoutes from './routes/routes';
 import { ToastContainer } from 'react-toastify';
+// import { GetDataAndPushInContext } from './components/task/getData';
 
 // export const store = createStore(Reducer)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-      <AppRoutes />
-      <ToastContainer />
+    <AppRoutes />
+    {/* <GetDataAndPushInContext /> */}
+    <ToastContainer />
   </>
 );
 
