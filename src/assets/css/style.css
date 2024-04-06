@@ -49,7 +49,7 @@ body {
 
 input,
 textarea {
-    box-shadow: 0 0 12px #d8cdd856;
+    box-shadow: 0 0 3px #6f6be5 !important;
     border: 1px solid #cccccc52 !important;
 }
 
@@ -189,6 +189,10 @@ footer {
 }
 
 /* data table */
+.table {
+    --bs-table-bg: transparent !important;
+}
+
 .data-table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -196,24 +200,25 @@ footer {
     border: 1px solid #ddd;
 }
 
-.data-table>tr>th,
-.data-table>tr>td {
+.data-table>thead>tr>th,
+.data-table>tbody>tr>td {
     text-align: start;
     padding: 16px;
 }
 
-.data-table>tr>td {
+.data-table>tbody>tr>td {
     line-height: 24px;
     vertical-align: center;
 }
 
-.data-table>tr>.description {
+.data-table>thead>tr>.description,
+.data-table>tbody>tr>.description {
     font-size: 13px;
 }
 
 
-.data-table>tr:nth-child(even) {
-    background-color: #6f6be533
+.data-table>tbody>tr:nth-child(odd) {
+    background-color: #6f6be533 !important;
 }
 
 /* bootstrap Custom */
