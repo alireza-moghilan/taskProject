@@ -1,11 +1,13 @@
 import axios from 'axios'
 import {  toast } from 'react-toastify';
+
+// url Api
 const instance = axios.create({
     baseURL: 'http://localhost:3000'
 });
 
 
-
+// Error handling
 instance.interceptors.response.use(null,error=>{
     console.log(error.response);
 
@@ -21,9 +23,12 @@ instance.interceptors.response.use(null,error=>{
     }
     toast.error('خطای اتصال به سرور')
 })
+
+// get Token
 // const token=localStorage.getItem('token');
 // instance.defaults.headers.common["authorization"]="Bearer " + token;
 
+// client
 export const client={
     get:instance.get,
     post:instance.post,
