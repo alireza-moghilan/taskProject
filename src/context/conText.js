@@ -7,3 +7,7 @@ export const idTask = {
 export const clickEndTaskBtnState = {
     clickState:false
 }
+export const dataApi = {
+    data:{},
+    // dataEdit:false
+}
