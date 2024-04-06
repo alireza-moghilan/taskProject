@@ -2,13 +2,24 @@
 import { client } from '../../../services/appAxios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useEffect, useState } from "react"
+import { useContext } from 'react';
+import { conTextDataApi } from '../../../routes/routes';
 
 export const DeleteTask = (props) => {
+    // context
+    const saveApiInContext = useContext(conTextDataApi);
     const deleteTaskFun = async (id) => {
+        let deleteTaskVar=[];
         try {
             await client.delete(`tasks/${id}`);
-        }catch(error){console.error(error)}
+            saveApiInContext.dataState.map(index => {
+                if (index.id != id) {
+                    deleteTaskVar.push(index)
+                }
+            })
+            saveApiInContext.setDataState(deleteTaskVar)
+
+        } catch (error) { console.error(error) }
     }
 
     return (

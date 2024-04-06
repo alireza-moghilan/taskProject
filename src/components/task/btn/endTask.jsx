@@ -4,66 +4,52 @@ import { useEffect } from "react";
 import { client } from "../../../services/appAxios";
 import { toast } from "react-toastify";
 import { useContext } from "react";
-import { conTextEndTaskBtn } from "../../../routes/routes";
+import { conTextDataApi, conTextEndTaskBtn } from "../../../routes/routes";
 
 
 export const EndTask = () => {
     const clickState = useContext(conTextEndTaskBtn);
-
     // state => Put data
     const [putData, setPutData] = useState({
         timeEndTask: "",
-        startTask: false,
+        startTask: "false",
         endTask: true,
     });
     // use ConText
-    // const idTaskVar = useContext(conTextIdTask);
-    // 
-    const [idTask, setIdTask] = useState("");
+    const saveApiInContext = useContext(conTextDataApi);
+
+    // Getting data from context and filling the State value 
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        setData(saveApiInContext.dataState)
+    }, [saveApiInContext.dataState])
 
     // New time
     const newtime = new Date().getHours() + ":" + new Date().getMinutes();
 
-    // Get data
-    const getData = async () => {
-        try {
-            // get
-            const result = await client.get('/tasks');
-            // Pour the received information into the variable
-            const { data } = result;
-
-            let arr = []
-            data.map(index => {
-                if (index.startTask == true) {
-                    arr.push([index.id])
-                }
-            })
-            setIdTask(arr);
-        }
-        catch (e) {
-            console.log(e)
-        }
-    }
-
-    // Get the latest api changes
-    useEffect(() => {
-        const fetch = async () => {
-            await getData();
-        }
-        fetch();
-
-    }, [getData])
-
-
     const endTaskFun = async () => {
+        // Get id
+        let idTask = data.map(index => {
+            if (index.startTask == true) {
+                return index.id
+            }
+        })
+
         try {
             // Fill state (putData)
             putData.timeEndTask = newtime;
             // Put data
             let response = await client.put(`tasks/${idTask}`, putData);
             // toast
-            if (response.status==200) {
+            if (response.status == 200) {
                 clickState.setEndTaskBtn(true)
+                data.find(index => {
+                    if (index.id == idTask) {
+                        index.timeEndTask = putData.timeEndTask;
+                        index.startTask = putData.startTask;
+                        index.endTask = putData.endTask;
+                    }
+                })
                 toast.success("تسک با موفقیت پایان یافت");
             }
         }

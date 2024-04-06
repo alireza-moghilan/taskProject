@@ -1,4 +1,8 @@
 export const timeDifferenceInHours = (startTime, endTime) => {
+    if (startTime=="") {
+        return "تسک تا به حال اجرا نشده است"
+    }
+    
     // Convert hours to minutes
     const hoursToMinute = (timeHoursToMinute) => {
         let timeStartTask = timeHoursToMinute;
@@ -33,44 +37,47 @@ export const timeDifferenceInHours = (startTime, endTime) => {
         // Check the end time status
         // اگر به پایان رسیده باشد مقدار با زمان پایانی محاسبه می شود در غیر اینصورت با زمان جاری
         if (endTime != "") {
-            newTime = endTime
+            newTime = endTime;
             // Separate strings
             let am = newTime.split(":", 2);
-
+            let cloneNewTimeVar = newTime.split(":", 2)
+            let cloneStartTaskVar = startTime.split(":", 2)
             // Changing the time from 12 hours to 24 hours
-            if (Number(am[0]) <= 12) {
+            if (Number(am[0]) < 12) {
                 // Change time from 00:00 to 12:00
-                if (Number(am[0] == 0)) {
-                    newTime = hoursToMinute(new Date().getHours() + 12 + ":" + new Date().getMinutes())
+                newTime = hoursToMinute(Number(cloneNewTimeVar[0]) + 24 + ":" + cloneNewTimeVar[1])
+                if (Number(cloneStartTaskVar[0])<12) {
+                    timeStartTask = hoursToMinute(Number(cloneStartTaskVar[0]) + 24 + ":" + cloneStartTaskVar[1])
                 }
-                else {
-                    newTime = hoursToMinute(new Date().getHours() + 24 + ":" + new Date().getMinutes())
-                }
-
             } else {
-                newTime = hoursToMinute(new Date().getHours() + ":" + new Date().getMinutes())
+                newTime = hoursToMinute(endTime)
             }
         }
         else {
             newTime = new Date().getHours() + ":" + new Date().getMinutes();
             // Separate strings
             let am = newTime.split(":", 2);
+            let cloneStartTaskVar = startTime.split(":", 2)
 
             // Changing the time from 12 hours to 24 hours
-            if (Number(am[0]) <= 12) {
+            if (Number(am[0]) < 12) {
                 // Change time from 00:00 to 12:00
                 if (Number(am[0] == 0)) {
-                    newTime = hoursToMinute(new Date().getHours() + 12 + ":" + new Date().getMinutes())
-                }
-                else {
+                newTime = hoursToMinute(24 + ":" + new Date().getMinutes())
+                } else {
                     newTime = hoursToMinute(new Date().getHours() + 24 + ":" + new Date().getMinutes())
                 }
+                if (Number(cloneStartTaskVar[0])<12) {
+                    timeStartTask = hoursToMinute(Number(cloneStartTaskVar[0]) + 24 + ":" + cloneStartTaskVar[1])
+                }
+
 
             } else {
                 newTime = hoursToMinute(new Date().getHours() + ":" + new Date().getMinutes())
             }
         }
 
+        // console.log(startTime)
         // time difference
         let timeDifferenceToMinute;
         if (newTime >= timeStartTask) {

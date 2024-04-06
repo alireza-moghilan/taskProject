@@ -4,77 +4,74 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from "react"
 import { useContext } from 'react';
-import { conTextEndTaskBtn, conTextIdTask } from '../../../routes/routes';
+import { conTextDataApi, conTextEndTaskBtn, conTextIdTask } from '../../../routes/routes';
 
 export const StartTask = (props) => {
     // state => Put data
-    const [putData,setPutData]=useState({
-        timeStartTask:"",
-        startTask:true
+    const [putData, setPutData] = useState({
+        timeStartTask: "",
+        startTask: true
     });
-    // state => زمان شروع تسک
-    const [timeStartTask,setTimeStartTask]=useState("");
-    // 
-    const [allTimeStart,setAllTimeStart]=useState(false);
     // use ConText
     const idTaskVar = useContext(conTextIdTask);
     const clickState = useContext(conTextEndTaskBtn);
+    const saveApiInContext = useContext(conTextDataApi);
+
+    // Getting data from context and filling the State value 
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        setData(saveApiInContext.dataState)
+    }, [saveApiInContext.dataState])
 
     // New time
     const newtime = new Date().getHours() + ":" + new Date().getMinutes();
 
+    // let => زمان شروع تسک
+    let timeStartTask ="";
+    let allTimeStart ="";
     // Get data
-    const getData = async () => {
-        try {
-            // get
-            const result = await client.get('/tasks');
-            // Pour the received information into the variable
-            const { data } = result;
-
-            // Fill state (putData)
-            data.map(index=> {
-                if (index.id==props.id) {
-                    // Fill state (timeStartTask)
-                    setTimeStartTask(index.timeStartTask)
-                    // 
-                    putData.timeStartTask=newtime;
-                }
-            })
-            let arr=[]
-            data.map(index=> {
-                arr.push(index.startTask)
-            })
-            setAllTimeStart(arr);
-
-        }
-        catch (e) {
-            console.log(e)
-        }
+    const findTaskStart = () => {
+        // Fill state (putData)
+        data.map(index => {
+            if (index.id == props.id) {
+                // Fill state (timeStartTask)
+                timeStartTask=index.timeStartTask
+                // 
+                putData.timeStartTask = newtime;
+            }
+        })
+        let arr = []
+        data.map(index => {
+            arr.push(index.startTask)
+        })
+        allTimeStart= arr;
     }
 
-    // Get the latest api changes
-    useEffect(()=> {
-        const fetch = async () => {
-            await getData();
-        }
-        fetch();
-    },[getData])
 
-    const startTaskFun = async (id) => {        
+    const startTaskFun = async (id) => {
         try {
+            // find task start
+            findTaskStart();
             for (let i = 0; i < allTimeStart.length; i++) {
-                if (allTimeStart[i]==true) {
+                if (allTimeStart[i] == true) {
                     toast.warning("یک تسک درحال اجرا است");
                     return;
                 }
             }
             // Checked task run
-            if (timeStartTask.length>0){
+            if (timeStartTask.length > 0) {
                 toast.warning("تسک پایان یافته است.")
                 return
-            }else{
+            } else {
                 // Put data
                 await client.put(`tasks/${id}`, putData);
+                saveApiInContext.setDataState(saveApiInContext.dataState);
+                data.find(index => {
+                    if (index.id == id) {
+                        index.timeStartTask = putData.timeStartTask;
+                        index.startTask = putData.startTask;
+                    }
+                })
                 // set id in store
                 idTaskVar.setIdTaskState(id);
                 // set state in store
