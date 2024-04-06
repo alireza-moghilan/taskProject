@@ -1,6 +1,6 @@
 // import
 import { useState } from 'react';
-import { FormAddTask } from './formAddTask';
+import { FormAddTask } from './form/formAddTask';
 import { SectionTaskCard } from './sectionTaskCard';
 export const RegisteringDailyTask = () => {
     return (
