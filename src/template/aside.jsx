@@ -55,7 +55,7 @@ export const Aside = (menuStatus) => {
                             </Link>
                         </li>
                         <li className="nav-item mb-3">
-                            <Link to={"#"} className="nav-link link-dark">
+                            <Link to={"/viewAllTask"} className={(location.pathname === "/viewAllTask" ? "active" : "link-dark") + " nav-link "}>
                                 <span className="me-3 icon-aside"><i className="bi bi-view-list"></i></span>
                                 <span className='text-link'>مشاهده تمام تسک ها</span>
                             </Link>
