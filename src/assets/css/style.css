@@ -172,6 +172,17 @@ footer {
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
+.scroll-p {
+    overflow: auto;
+    height: 66px !important;
+}
+
+.scroll-custom {
+    overflow: auto;
+    max-height: 66px;
+}
+
 .type-task {
     margin-top: -8px;
     margin-bottom: 5px;

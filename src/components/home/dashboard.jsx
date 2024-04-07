@@ -47,7 +47,7 @@ export const Dashboard = (ev) => {
 
                         <div className="task-scroll p-4 ps-2 pt-2">
                             <div className="row g-4">
-                                <TaskCard colCard={"12"} />
+                                <TaskCard colCard={"12"} classScroll_p={false} />
                             </div>
                         </div>
                     </div>

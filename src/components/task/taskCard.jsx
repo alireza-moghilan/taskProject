@@ -50,7 +50,7 @@ export const TaskCard = (props) => {
                         </div>
 
 
-                        <p className="lh-lg">
+                        <p className={(props.classScroll_p == false ? "" : "scroll-p") + " scroll-custom lh-lg"}>
                             {
                                 index.description
                             }
