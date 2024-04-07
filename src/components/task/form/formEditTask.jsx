@@ -43,25 +43,28 @@ export const FormEditTask = (props) => {
     const putTask = async () => {
         try {
             if (inputTask.id != "") {
-                tasksEdit.find(index => {
-                    if (index.id == inputTask.id) {
-                        index.subject = inputTask.subject;
-                        index.typeTask = inputTask.typeTask;
-                        index.description = inputTask.description;
-                    }
-                })
-                // set data in the context:dataState
-                saveApiInContext.setDataState(tasksEdit);
-                // checking the status of editDataStatus
-                saveApiInContext.editDataStatus ? saveApiInContext.setEditDataStatus(false) : saveApiInContext.setEditDataStatus(true)
 
 
                 // Put data
                 const resultPut = await client.put(`tasks/${inputTask.id}`, inputTask);
-                console.log(resultPut)
                 // toast
                 if (resultPut.status == 200) {
+                    tasksEdit.find(index => {
+                        if (index.id == inputTask.id) {
+                            index.subject = inputTask.subject;
+                            index.typeTask = inputTask.typeTask;
+                            index.description = inputTask.description;
+                        }
+                    })
+                    // set data in the context:dataState
+                    saveApiInContext.setDataState(tasksEdit);
+                    // checking the status of editDataStatus
+                    saveApiInContext.editDataStatus ? saveApiInContext.setEditDataStatus(false) : saveApiInContext.setEditDataStatus(true);
+
+                    // toast
                     toast.success("اطلاعات با موفقیت ویرایش شد");
+                } else {
+                    toast.error("خطایی رخ داده لطفا مجدد تلاش کنید");
                 }
             } else {
                 toast.error("خطایی رخ داده لطفا مجدد تلاش کنید");
@@ -74,7 +77,14 @@ export const FormEditTask = (props) => {
     useEffect(() => {
         // set data in the context:dataState
         setTasksEdit(saveApiInContext.dataState)
+        console.log("a")
+
     }, [saveApiInContext.editDataStatus])
+
+    useEffect(() => {
+        // set data in the context:dataState
+        setTasksEdit(saveApiInContext.dataState)
+    }, [saveApiInContext.dataState])
 
     return (
         <>
