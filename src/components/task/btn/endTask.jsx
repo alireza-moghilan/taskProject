@@ -24,14 +24,15 @@ export const EndTask = () => {
         setData(saveApiInContext.dataState)
     }, [saveApiInContext.dataState])
 
-    // New time
-    const newtime = new Date().getHours() + ":" + new Date().getMinutes();
 
     const endTaskFun = async () => {
+        // New time
+        const newtime = new Date().getHours() + ":" + new Date().getMinutes();
         // Get id
-        let idTask = data.map(index => {
+        let idTask = NaN;
+        data.map(index => {
             if (index.startTask == true) {
-                return index.id
+                idTask = index.id;
             }
         })
 

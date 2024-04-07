@@ -22,15 +22,15 @@ export const StartTask = (props) => {
     useEffect(() => {
         setData(saveApiInContext.dataState)
     }, [saveApiInContext.dataState])
-
-    // New time
-    const newtime = new Date().getHours() + ":" + new Date().getMinutes();
-
+    
+    
     // let => زمان شروع تسک
     let timeStartTask ="";
     let allTimeStart ="";
     // Get data
     const findTaskStart = () => {
+        // New time
+        const newtime = new Date().getHours() + ":" + new Date().getMinutes();
         // Fill state (putData)
         data.map(index => {
             if (index.id == props.id) {
