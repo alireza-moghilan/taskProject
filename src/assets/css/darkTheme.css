@@ -1,0 +1,153 @@
+/* root and color */
+@import url('./root.css');
+
+/* main tags */
+.darkMode body,
+.darkMode nav,
+.darkMode aside>div,
+.darkMode footer {
+    background-color: var(--dark-theme) !important;
+}
+
+.darkMode nav {
+    box-shadow: -7px 0 9px #d8cdd88c !important;
+}
+
+.darkMode p,
+.darkMode label,
+.darkMode a,
+.darkMode span,
+.darkMode svg,
+.darkMode i,
+.darkMode h1,
+.darkMode h2,
+.darkMode h3,
+.darkMode h4,
+.darkMode h5,
+.darkMode h6,
+.darkMode th,
+.darkMode td {
+    color: #fff !important;
+}
+
+/* task */
+.darkMode .task {
+    background-color: var(--dark-color-box) !important;
+}
+
+.darkMode .task h4,
+.darkMode .task p,
+.darkMode .task a,
+.darkMode .task span {
+    color: #fff !important;
+}
+
+.darkMode input,
+.darkMode select,
+.darkMode textarea {
+    color: #fff !important;
+    background-color: var(--dark-color-box) !important;
+}
+
+.darkMode :-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #fff !important;
+}
+
+.darkMode :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #fff !important;
+    opacity: 1;
+}
+
+.darkMode ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #fff !important;
+    opacity: 1;
+}
+
+.darkMode :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #fff !important;
+}
+
+.darkMode ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #fff !important;
+}
+
+.darkMode ::placeholder {
+    /* Most modern browsers support this now. */
+    color: #fff !important;
+}
+
+.darkMode .bg-checkBox {
+    background-color: var(--dark-color-box) !important;
+}
+
+.darkMode .task-settings>div {
+    box-shadow: 0 0 12px #d8cdd88c !important;
+}
+
+.darkMode .task-settings>div {
+    background-color: var(--dark-color-box);
+}
+
+/* modal */
+.darkMode .modal-content {
+    background-color: var(--dark-color-box);
+}
+
+.darkMode .btn-close {
+    background-color: #fff !important;
+}
+
+/* animation */
+/* animation */
+@keyframes shadow_ani_dark {
+    25% {
+        box-shadow: 0 0 1px 1px #fff;
+    }
+
+    50% {
+        box-shadow: 0 0 2px 2px #fff;
+    }
+
+    75% {
+        box-shadow: 0 0 2px 3px #fff;
+    }
+
+    100% {
+        box-shadow: 0 0 1px 4px #fff;
+    }
+}
+
+.darkMode .start-task {
+    animation-name: shadow_ani_dark !important;
+    background-color: var(--main-color) !important;
+}
+
+/* hr */
+.darkMode hr {
+    color: #fff !important;
+}
+
+
+
+/* dark and light btn color */
+.darkMode .dark-and-light-btn-color .start-task,
+.darkMode .dark-and-light-btn-color .nav-pills .nav-link.active,
+.darkMode .dark-and-light-btn-color .main-btn {
+    background-color: #fff !important;
+    color: var(--dark-theme) !important
+}
+
+.darkMode .dark-and-light-btn-color .nav-pills .nav-link.active>span>i,
+.darkMode .dark-and-light-btn-color .main-btn>i {
+    color: var(--dark-theme) !important
+}
+
+.darkMode .bg-dark-and-light {
+    background-color: #fff !important;
+    border-color: var(--gold-color) !important;
+}

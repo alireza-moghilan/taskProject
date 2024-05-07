@@ -1,15 +1,16 @@
 // react Component
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { createContext, useEffect } from "react"
+import { createContext } from "react"
 // react Component
 import { Template } from "../template/template"
-import { Dashboard } from "../components/home/dashboard"
+import { Dashboard } from "../components/page/dashboard"
 import { RegisteringDailyTask } from "../components/task/registeringDailyTask"
-import { AllTask } from "../components/task/viewAllTasks/allTask"
+import { AllTask } from "../components/page/allTask"
+import { TargetRegistration } from "../components/page/targetRegistration"
+import { Error404 } from "../components/errors/error404"
 // store
 import { clickEndTaskBtnState, dataApi, idTask, menuState } from "../context/conText"
 import { useState } from "react"
-import { Error404 } from "../components/errors/error404"
 import { GetDataAndPushInContext } from "../components/task/getData"
 
 
@@ -38,6 +39,7 @@ const AppRoutes = () => {
                                 <Route path={"/dashboard"} element={<Template><Dashboard /></Template>} />
                                 <Route path={"/newTask"} element={<Template><RegisteringDailyTask /></Template>} />
                                 <Route path={"/viewAllTask"} element={<Template><AllTask /></Template>} />
+                                <Route path={"/targetRegistration"} element={<Template><TargetRegistration /></Template>} />
                                 <Route path={"*"} element={<Error404 />} />
                             </Routes>
                         </BrowserRouter>

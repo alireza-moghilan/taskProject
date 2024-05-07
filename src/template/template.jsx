@@ -21,8 +21,8 @@ export const Template = props => {
                         <Navbar />
 
                         {/* Content */}
-                        <section className="content p-5 ">
-                            <div className="container">
+                        <section className="content p-md-5 p-sm-4 p-2">
+                            <div className="container-md">
                                 {
                                     props.children
                                 }

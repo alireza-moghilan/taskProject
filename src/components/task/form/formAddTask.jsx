@@ -17,9 +17,11 @@ export const FormAddTask = () => {
         startTask: false,
         endTask: false,
         timeStartTask: "",
-        timeEndTask: ""
+        timeEndTask: "",
+        role: false
     })
     const [taskId, setTaskId] = useState([])
+    const [checkBox, setCheckBox] = useState(false)
     // use context
 
     const saveApiInContext = useContext(conTextDataApi);
@@ -72,14 +74,23 @@ export const FormAddTask = () => {
     return (
         <>
             <div className="p-4 rounded-3 shadow-custom mb-4" onSubmit={addTask}>
-                <form action="" method="" className="row">
-                    <div className="col-4 mb-3">
+                <form action="" method="" className="row g-3">
+                    <div className="col-lg-4 col-md-6 col-12 mb-3">
                         <label htmlFor="" className="form-label">موضوع</label>
                         <input type="text" className="form-control" id="" placeholder="موضوع" name="subject" onInput={onInput} />
                     </div>
-                    <div className="col-4 mb-3">
+                    <div className="col-lg-4 col-md-6 col-12 mb-3">
                         <label htmlFor="" className="form-label">نوع تسک</label>
                         <input type="text" className="form-control" id="" placeholder="تسک برای چه شاخه ایی است؟" name="typeTask" onInput={onInput} />
+                    </div>
+                    <div className="col-lg-4 col-12 mb-3">
+                        <div className='d-flex align-items-end h-100 '>
+                            <label htmlFor="" className='d-flex justify-content-between align-items-center px-3 py-2 shadow-input bg-checkBox w-100 rounded-2'>
+                                <label htmlFor="" className="form-label form-check-label mb-0 h6 input-color">آیا این یک هدف است؟</label>
+                                <input type="checkbox" className={(checkBox ? "check-box-active" : "") + " form-check-input check-box my-0 pointer"} 
+                                    id="checkBox" placeholder="آیا این یک هدف است؟" name="role" onClick={() => { inputTask.role = !inputTask.role; setCheckBox(!checkBox); }} />
+                            </label>
+                        </div>
                     </div>
                     <div className="col-12 mb-3">
                         <label htmlFor="" className="form-label">توضیحات</label>

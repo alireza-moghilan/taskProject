@@ -8,13 +8,15 @@ import { conTextDataApi } from "../../../routes/routes";
 
 
 
-export const FormEditTask = (props) => {
+export const    FormEditTask = (props) => {
     // state
+    const [checkBox, setCheckBox] = useState(props.roleTask)
     const [inputTask, setInputTask] = useState({
         id: props.id,
         subject: props.subjectTask,
         typeTask: props.typeTask,
         description: props.descriptionTask,
+        role: props.roleTask
     })
     const [tasksEdit, setTasksEdit] = useState([
         {
@@ -26,7 +28,7 @@ export const FormEditTask = (props) => {
             startTask: false,
             endTask: false,
             timeStartTask: "",
-            timeEndTask: ""
+            timeEndTask: "",
         }
     ])
 
@@ -40,6 +42,7 @@ export const FormEditTask = (props) => {
         setInputTask({ ...inputTask, [name]: value });
     }
 
+    // put data
     const putTask = async () => {
         try {
             if (inputTask.id != "") {
@@ -54,6 +57,7 @@ export const FormEditTask = (props) => {
                             index.subject = inputTask.subject;
                             index.typeTask = inputTask.typeTask;
                             index.description = inputTask.description;
+                            index.role = inputTask.role;
                         }
                     })
                     // set data in the context:dataState
@@ -74,10 +78,22 @@ export const FormEditTask = (props) => {
 
     }
 
+    const setDataCheckBox = () => {
+        if (inputTask.role==true) {
+            inputTask.role = "false";
+        }else {
+            inputTask.role=true;
+        }
+        if (checkBox==true) {
+            setCheckBox("false");
+        }else {
+            setCheckBox(true);
+        }
+    }
+
     useEffect(() => {
         // set data in the context:dataState
         setTasksEdit(saveApiInContext.dataState)
-        console.log("a")
 
     }, [saveApiInContext.editDataStatus])
 
@@ -96,6 +112,15 @@ export const FormEditTask = (props) => {
                 <div className="col-md-12">
                     <label htmlFor="" className="d-block mb-2">تغییر نوع تسک</label>
                     <input type="text" className="form-control" name="typeTask" id="" placeholder="نوع تسک ..." value={inputTask.typeTask} onInput={onInput} required />
+                </div>
+                <div className="col-12">
+                    <div className='d-flex align-items-end h-100 '>
+                        <label htmlFor="" className='d-flex justify-content-between align-items-center px-3 py-2 shadow-input w-100 rounded-2'>
+                            <label htmlFor="" className="form-label form-check-label mb-0 h6 input-color">آیا این یک هدف است؟</label>
+                            <input type="checkbox" className={(checkBox=="false" ? "" : "check-box-active") + " form-check-input check-box my-0 pointer"} defaultChecked={props.roleTask==="false"?false:props.roleTask}
+                                id="checkBox" placeholder="آیا این یک هدف است؟" name="role" onClick={setDataCheckBox} />
+                        </label>
+                    </div>
                 </div>
                 <div className="col-md-12">
                     <label htmlFor="" className="d-block mb-2">تغییر توضیحات</label>

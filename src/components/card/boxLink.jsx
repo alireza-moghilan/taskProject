@@ -1,5 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
-
+// code
 export const BoxLink = props => {
     return (
         <>

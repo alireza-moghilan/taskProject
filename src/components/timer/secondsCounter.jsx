@@ -145,6 +145,7 @@ const SecondsCounter = (props) => {
     const [hours, setHours] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [seconds, setSeconds] = useState(0);
+    const [flagStart, setFlagStart] = useState(false);
     // const [data, setData] = useState([]);
     let data = [];
     // use ConText
@@ -165,11 +166,14 @@ const SecondsCounter = (props) => {
                 return timeStart = time;
             }
         })
-        setHours(0)
-        setMinutes(0)
-        setSeconds(0)
         //
-        getTime()
+        if (!flagStart) {
+            setHours(0)
+            setMinutes(0)
+            setSeconds(0)
+            getTime();
+            setFlagStart(true)
+        }
     }, [saveApiInContext.dataState])
 
     

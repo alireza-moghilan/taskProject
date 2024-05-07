@@ -1,9 +1,9 @@
 // import
-import { TaskCard } from "../taskCard"
+import { TaskCard } from "../task/taskCard"
 import { useContext } from "react"
-import { conTextDataApi } from "../../../routes/routes"
+import { conTextDataApi } from "../../routes/routes"
 
-export const AllTask = (props) => {
+export const TargetRegistration = (props) => {
     // use ConText
     const dataContext = useContext(conTextDataApi);
 
@@ -21,13 +21,13 @@ export const AllTask = (props) => {
                     </div>
                     <div className="col-1">
                         <button className="btn main-btn">
-                            <i class="bi bi-search h4 d-flex h-100 mb-0 p-1"></i>
+                            <i className="bi bi-search h4 d-flex h-100 mb-0 p-1"></i>
                         </button>
                     </div>
                 </div>
                 {/* <SectionTaskCard /> */}
                 <div className="row g-4">
-                    <TaskCard searchTask={true} />
+                    <TaskCard searchTask={"targetRegistration"} />
                 </div>
             </div>
         </>

@@ -1,0 +1,50 @@
+/* root and color */
+@import url('./root.css');
+
+
+/*
+
+bg-main-btn-color
+bg-main-dark-btn-color
+dark-and-light-btn-color
+
+*/
+
+/* btn */
+.bg-main-btn-color .main-btn {
+    background-color: var(--main-color) !important;
+}
+
+.bg-main-dark-btn-color .main-btn {
+    background-color: var(--main-color-dark) !important;
+}
+
+.dark-and-light-btn-color .main-btn {
+    background-color: var(--dark-theme) !important;
+}
+
+/* btn bootstrap */
+.bg-main-btn-color .nav-pills .nav-link.active {
+    background-color: var(--main-color) !important;
+}
+
+.bg-main-dark-btn-color .nav-pills .nav-link.active {
+    background-color: var(--main-color-dark) !important;
+}
+
+.dark-and-light-btn-color .nav-pills .nav-link.active {
+    background-color: var(--dark-theme) !important;
+}
+
+/* start Task */
+.bg-main-btn-color .start-task {
+    background-color: var(--main-color) !important;
+}
+
+.bg-main-dark-btn-color .start-task {
+    background-color: var(--main-color-dark) !important;
+}
+
+.dark-and-light-btn-color .start-task {
+    background-color: var(--dark-theme) !important;;
+}

@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from "redux"
-import { Reducer } from './reducers';
-import { Provider } from "react-redux"
 
 
 // bootstrap
@@ -14,11 +11,15 @@ import '../node_modules/bootstrap-icons/font/bootstrap-icons.min.css';
 import './assets/css/style.css';
 import './assets/css/reset.css';
 import './assets/css/aside.css';
+import "./assets/css/changeColorBtn.css";
+import "./assets/css/darkTheme.css";
 
 // font
 import './assets/css/font/font.css';
 
 // JavaScript 
+import './assets/js/code.js';
+
 // bootstrap js
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 
@@ -27,10 +28,14 @@ import AppRoutes from './routes/routes';
 import { ToastContainer } from 'react-toastify';
 // import { GetDataAndPushInContext } from './components/task/getData';
 
+// modal
+import { ModalCustom } from './components/modal/modal';
+
 // export const store = createStore(Reducer)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
+    <ModalCustom />
     <AppRoutes />
     {/* <GetDataAndPushInContext /> */}
     <ToastContainer />

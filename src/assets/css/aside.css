@@ -47,3 +47,24 @@
 .aside-close>div>ul>li>a>.icon-aside {
     margin: 0 !important;
 }
+
+/* responsive */
+@media screen and (max-width:1190px) {
+    .aside {
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 999;
+        width: 295px !important;
+        overflow: hidden;
+        box-shadow: 0 0 20px #ccc;
+    }
+    .aside-close {
+        width: 0 !important;
+    }
+}
+@media screen and (min-width:1190.98px) {
+    .btn-close-custom {
+        display: none !important;
+    }
+}

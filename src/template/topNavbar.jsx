@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom"
 import Timer from "../components/timer/timer"
 import { useContext } from "react";
 import { conText } from "../routes/routes";
+import { ModalCustom } from "../components/modal/modal";
 
 export const Navbar = () => {
 
@@ -18,7 +19,7 @@ export const Navbar = () => {
         <>
             <nav className="d-flex align-items-center justify-content-between navbar navbar-expand-lg bg-body-tertiary p-3 shadow-sm">
                 <div className="container">
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav flex-row">
                         <li className="nav-item pe-4">
                             <div className="pointer" onClick={hamburgerMenu}>
                                 <i className="bi bi-list h2"></i>
@@ -36,7 +37,9 @@ export const Navbar = () => {
                     </ul>
                     <div className="">
                         <span className="me-4">{<Timer />}</span>
-                        <i className="bi bi-palette-fill"></i>
+                        {/* <i className="bi bi-palette-fill"></i> */}
+                        {/* <ModalCustom body={"changeColor"} /> */}
+                        <ModalCustom titleModal={"تغییر رنگ دلخواه"} body={"changeColor"} dataBsTarget={"modalFormChangeColor"}    />
                     </div>
                 </div>
             </nav>

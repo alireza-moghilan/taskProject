@@ -1,8 +1,11 @@
 :root {
     --main-color : #6f6be5;
     --main-color-dark :#4b48a4;
-    --lemon-color : #FFE79B;
+    --gold-color : #e2b624;
     --lemon-transparent-color : #ffe89bbd;
     --purple-color-1 : #9336B4;
     --purple-color-2 : #DD58D6;
+    --input-color: #2d2a32;
+    --dark-theme: #15131d;
+    --dark-color-box:#2d2b3c;
 }
