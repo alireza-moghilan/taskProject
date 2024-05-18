@@ -9,10 +9,15 @@ import '../node_modules/bootstrap-icons/font/bootstrap-icons.min.css';
 
 // custom style
 import './assets/css/style.css';
+import './assets/css/customStyle.css';
 import './assets/css/reset.css';
 import './assets/css/aside.css';
 import "./assets/css/changeColorBtn.css";
 import "./assets/css/darkTheme.css";
+// video style code
+import './assets/css/coustomVideoPalyer.css';
+import '@vidstack/react/player/styles/default/theme.css';
+import '@vidstack/react/player/styles/default/layouts/video.css';
 
 // font
 import './assets/css/font/font.css';

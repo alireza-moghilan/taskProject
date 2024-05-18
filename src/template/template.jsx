@@ -1,13 +1,8 @@
 // Component
-import { useState } from "react"
 import { TaskSettings } from "../components/task/taskSettings"
 import { Aside } from "./aside"
 import { Footer } from "./footer"
 import { Navbar } from "./topNavbar"
-import { client } from "../services/appAxios"
-import { useContext } from "react"
-import { conTextDataApi } from "../routes/routes"
-import { useEffect } from "react"
 
 export const Template = props => {
     return (

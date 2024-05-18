@@ -4,6 +4,7 @@ import { createContext } from "react"
 // react Component
 import { Template } from "../template/template"
 import { Dashboard } from "../components/page/dashboard"
+import { AboutOurWork } from "../components/page/aboutOurWork"
 import { RegisteringDailyTask } from "../components/task/registeringDailyTask"
 import { AllTask } from "../components/page/allTask"
 import { TargetRegistration } from "../components/page/targetRegistration"
@@ -36,6 +37,7 @@ const AppRoutes = () => {
                         <BrowserRouter>
                             <Routes>
                                 <Route path={"/"} element={<Template><Dashboard /></Template>} />
+                                <Route path={"/aboutOurWork"} element={<Template><AboutOurWork /></Template>} />
                                 <Route path={"/dashboard"} element={<Template><Dashboard /></Template>} />
                                 <Route path={"/newTask"} element={<Template><RegisteringDailyTask /></Template>} />
                                 <Route path={"/viewAllTask"} element={<Template><AllTask /></Template>} />

@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import Timer from "../components/timer/timer"
 import { useContext } from "react";
 import { conText } from "../routes/routes";
@@ -26,10 +26,10 @@ export const Navbar = () => {
                             </div>
                         </li>
                         <li className="nav-item pe-4">
-                            <a className={(location.pathname == "/home" ? "active-bottom-line" : "") + " nav-link"} href="">خانه</a>
+                            <Link to={"/dashboard"} className={(location.pathname == "/dashboard" ? "active-bottom-line" : "") + " nav-link"}>خانه</Link>
                         </li>
                         <li className="nav-item pe-4">
-                            <a className={(location.pathname == "/aboute" ? "active-bottom-line" : "") + " nav-link"} href="">درباره ما</a>
+                            <Link to={"/aboutOurWork"} className={(location.pathname == "/aboutOurWork" ? "active-bottom-line" : "") + " nav-link"}>درباره ما</Link>
                         </li>
                         <li className="nav-item pe-4">
                             <a className={(location.pathname == "/setting" ? "active-bottom-line" : "") + " nav-link"} href="">تنظیمات</a>
@@ -37,9 +37,7 @@ export const Navbar = () => {
                     </ul>
                     <div className="">
                         <span className="me-4">{<Timer />}</span>
-                        {/* <i className="bi bi-palette-fill"></i> */}
-                        {/* <ModalCustom body={"changeColor"} /> */}
-                        <ModalCustom titleModal={"تغییر رنگ دلخواه"} body={"changeColor"} dataBsTarget={"modalFormChangeColor"}    />
+                        <ModalCustom titleModal={"تغییر رنگ دلخواه"} body={"changeColor"} dataBsTarget={"modalFormChangeColor"} />
                     </div>
                 </div>
             </nav>

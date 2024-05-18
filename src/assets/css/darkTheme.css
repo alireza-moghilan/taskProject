@@ -30,6 +30,10 @@
     color: #fff !important;
 }
 
+.darkMode .shadow-darkMode {
+    box-shadow: 0 0 16px #fff;
+}
+
 /* task */
 .darkMode .task {
     background-color: var(--dark-color-box) !important;
@@ -150,4 +154,10 @@
 .darkMode .bg-dark-and-light {
     background-color: #fff !important;
     border-color: var(--gold-color) !important;
+}
+
+/* tost */
+.darkMode .Toastify__toast-theme--light {
+    background-color: var(--dark-color-box);
+    color: #fff;
 }

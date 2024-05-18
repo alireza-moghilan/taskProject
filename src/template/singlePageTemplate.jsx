@@ -1,0 +1,6 @@
+// import
+
+
+const singlePageTemplate = ()=> {
+    
+}
