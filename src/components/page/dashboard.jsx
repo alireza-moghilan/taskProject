@@ -6,6 +6,7 @@ import { BoxLink } from "../card/boxLink"
 import calender from "../../assets/img/3D/calender-dynamic-gradient.png"
 import target from "../../assets/img/3D/target-dynamic-gradient.png"
 import totalTask from "../../assets/img/3D/fav-folder-dynamic-gradient.png"
+import today_sTasksImg from "../../assets/img/3D/today_s-task.png"
 // components page
 import ChartBar from "./chartBar"
 import DataTable from "./dataTable"
@@ -30,20 +31,34 @@ export const Dashboard = (ev) => {
         document.querySelector('body').style.overflow = "";
     }, [])
 
+    // Get the main target length
     const mainTarget = () => {
-        let targetLength=0;
+        let targetLength = 0;
         for (let index = 0; index < data.length; index++) {
-            if (data[index].role==true) {
+            if (data[index].role == true) {
                 targetLength++;
             }
         }
         return targetLength
     }
 
-    const dailyTask = ()=> {
-        let targetLength=0;
+    // Get the daliy task length
+    const dailyTask = () => {
+        let targetLength = 0;
         for (let index = 0; index < data.length; index++) {
-            if (data[index].role=="false") {
+            if (data[index].role == "false" || !data[index].role) {
+                targetLength++;
+            }
+        }
+        return targetLength
+    }
+
+    // Get the Today's tasks length
+    const today_sTasks=()=> {
+        let targetLength = 0,
+        today_sDate=new Date().toString().split(' ')[0];
+        for (let index = 0; index < data.length; index++) {
+            if (today_sDate==data[index].dateRegistration) {
                 targetLength++;
             }
         }
@@ -54,9 +69,10 @@ export const Dashboard = (ev) => {
         <>
             {/* Content */}
             <div className="row gy-4 gx-4">
-                <BoxLink classCol={"col-lg-4 col-md-6 col-12"} title={"تسک روزانه"} link={"todaysTasks"} description={"تسک"} number={dailyTask()} img={<img src={calender} className="fit-contain" width={70} alt="calender" />} />
-                <BoxLink classCol={"col-lg-4 col-md-6 col-12"} title={"اهداف بلند مدت"} link={"longTermPurposes"} description={"هدف اصلی"} number={mainTarget() ?? 0} img={<img src={target} className="fit-contain" width={80} />} />
-                <BoxLink classCol={"col-lg-4 col-12"} title={"مجموع تسک ها"} link={"ViewAllTasks"} description={"تسک"} number={data.length} img={<img src={totalTask} className="fit-contain" width={80} />} />
+                <BoxLink classCol={"col-lg-3 col-md-6 col-12"} title={"تسک های امروز"} link={"todaysTasks"} description={"تسک"} number={today_sTasks()} img={<img src={today_sTasksImg} className="fit-contain" width={85} alt="calender" />} />
+                <BoxLink classCol={"col-lg-3 col-md-6 col-12"} title={"تسک روزانه"} link={"todaysTasks"} description={"تسک"} number={dailyTask()} img={<img src={calender} className="fit-contain" width={70} alt="calender" />} />
+                <BoxLink classCol={"col-lg-3 col-md-6 col-12"} title={"اهداف بلند مدت"} link={"longTermPurposes"} description={"هدف اصلی"} number={mainTarget() ?? 0} img={<img src={target} className="fit-contain" width={80} />} />
+                <BoxLink classCol={"col-lg-3 col-md-6 col-12"} title={"مجموع تسک ها"} link={"ViewAllTasks"} description={"تسک"} number={data.length} img={<img src={totalTask} className="fit-contain" width={80} />} />
 
 
                 {/* chart Bar */}
@@ -67,7 +83,7 @@ export const Dashboard = (ev) => {
                             <hr />
                         </div>
                         {
-                            <ChartBar />
+                            <ChartBar/>
                         }
                     </div>
                 </div>
