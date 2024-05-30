@@ -3,7 +3,8 @@ import { FormChangeColor } from "../task/form/formChangeColor"
 import { FormEditTask } from "../task/form/formEditTask"
 
 
-
+// How to use the component ...
+{/* <ModalCustom titleModal={"title"} body={"type ..."} id={id} subjectTask={subject} typeTask={typeTask || Otherwise, it is not written} descriptionTask={description || Otherwise, it is not written} roleTask={role || Otherwise, it is not written} dataBsTarget={"modalFormEdit" + index.id} || Otherwise, it is not written /> */}
 
 export const ModalCustom = (props) => {
     return (
