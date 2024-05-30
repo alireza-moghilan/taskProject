@@ -1,8 +1,8 @@
 export const timeDifferenceInHours = (startTime, endTime) => {
-    if (startTime=="") {
+    if (startTime == "") {
         return "تسک تا به حال اجرا نشده است"
     }
-    
+
     // Convert hours to minutes
     const hoursToMinute = (timeHoursToMinute) => {
         let timeStartTask = timeHoursToMinute;
@@ -46,7 +46,7 @@ export const timeDifferenceInHours = (startTime, endTime) => {
             if (Number(am[0]) < 12) {
                 // Change time from 00:00 to 12:00
                 newTime = hoursToMinute(Number(cloneNewTimeVar[0]) + 24 + ":" + cloneNewTimeVar[1])
-                if (Number(cloneStartTaskVar[0])<12) {
+                if (Number(cloneStartTaskVar[0]) < 12) {
                     timeStartTask = hoursToMinute(Number(cloneStartTaskVar[0]) + 24 + ":" + cloneStartTaskVar[1])
                 }
             } else {
@@ -63,11 +63,11 @@ export const timeDifferenceInHours = (startTime, endTime) => {
             if (Number(am[0]) < 12) {
                 // Change time from 00:00 to 12:00
                 if (Number(am[0] == 0)) {
-                newTime = hoursToMinute(24 + ":" + new Date().getMinutes())
+                    newTime = hoursToMinute(24 + ":" + new Date().getMinutes())
                 } else {
                     newTime = hoursToMinute(new Date().getHours() + 24 + ":" + new Date().getMinutes())
                 }
-                if (Number(cloneStartTaskVar[0])<12) {
+                if (Number(cloneStartTaskVar[0]) < 12) {
                     timeStartTask = hoursToMinute(Number(cloneStartTaskVar[0]) + 24 + ":" + cloneStartTaskVar[1])
                 }
 
@@ -119,4 +119,38 @@ export const hoursToMinute = (time) => {
 
     // let hourToMinute = Number(hour) * 60 + Number(minute)
     return { hour: hour, minute: Number(minute) }
+}
+
+
+// Convert hours to minutes
+export const hoursToMinuteOutput = (time) => {
+    let timeStartTask = time;
+    let hour = "";
+    let minute = "";
+    for (let i = 0; i < timeStartTask.length; i++) {
+        if (timeStartTask[i] == ":" && hour.length == 1) {
+            hour = hour.replace(/^/, '0');
+        }
+        if (timeStartTask[i] != ":" && hour.length < 2) {
+            hour += timeStartTask[i];
+        }
+        else {
+            if (timeStartTask[i] != ":") {
+                minute += timeStartTask[i]
+            }
+        }
+    }
+
+    // let hourToMinute = Number(hour) * 60 + Number(minute)
+    // hour: hour, minute: Number(minute) 
+    return Number(hour) * 60 + Number(minute)
+}
+
+
+// Convert minutes to hours
+export const MinuteToHoursOutput = (time) => {
+    let timeDifference = time;
+    let hour = Math.floor(timeDifference / 60);
+    // let minute = timeDifference % 60;
+    return `${hour}`
 }
