@@ -515,3 +515,18 @@ footer {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
+
+
+
+
+/* +++++ Developing +++++ */
+.development-img {
+    width: 100%;   
+}
+
+@media (min-width:1200px) {
+    .development-img {
+        width: 70%;
+    }
+}

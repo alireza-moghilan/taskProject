@@ -12,6 +12,7 @@ export const FormAddTask = () => {
         id: 1,
         subject: "",
         typeTask: "",
+        dateRegistration:new Date().toString().split(' ')[0],
         description: "",
         timeRegisterTheTask: "",
         startTask: false,
@@ -38,10 +39,12 @@ export const FormAddTask = () => {
         // preventDefault
         ev.preventDefault();
         // time
-        const newtime = new Date().getHours() + ":" + new Date().getMinutes();
+        /////////// set in backend
+        // const newtime = new Date().getHours() + ":" + new Date().getMinutes();
         // set id and time
         const task = { ...inputTask };
-        task.timeRegisterTheTask = newtime;
+        /////////// set in backend
+        // task.timeRegisterTheTask = newtime;
 
         // Post Data
         try {
@@ -51,6 +54,20 @@ export const FormAddTask = () => {
             // Checked status
             if (postData.status === 201) {
                 toast.success("اطلاعات با موفقیت ثبت شد.");
+                setInputTask({
+                    id: 1,
+                    subject: "",
+                    typeTask: "",
+                    dateRegistration:new Date().toString().split(' ')[0],
+                    description: "",
+                    timeRegisterTheTask: "",
+                    startTask: false,
+                    endTask: false,
+                    timeStartTask: "",
+                    timeEndTask: "",
+                    role: false
+                })
+                document.querySelector('form').reset();
             }
         }
         catch (error) {
@@ -70,7 +87,7 @@ export const FormAddTask = () => {
         }
     }
 
-
+    
     return (
         <>
             <div className="p-4 rounded-3 shadow-custom mb-4" onSubmit={addTask}>

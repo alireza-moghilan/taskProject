@@ -32,7 +32,7 @@ export const Navbar = () => {
                             <Link to={"/aboutOurWork"} className={(location.pathname == "/aboutOurWork" ? "active-bottom-line" : "") + " nav-link"}>درباره ما</Link>
                         </li>
                         <li className="nav-item pe-4">
-                            <a className={(location.pathname == "/setting" ? "active-bottom-line" : "") + " nav-link"} href="">تنظیمات</a>
+                            <Link to={"/setting"} className={(location.pathname == "/setting" ? "active-bottom-line" : "") + " nav-link"} href="">تنظیمات</Link>
                         </li>
                     </ul>
                     <div className="">

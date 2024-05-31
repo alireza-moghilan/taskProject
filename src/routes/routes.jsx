@@ -13,6 +13,8 @@ import { Error404 } from "../components/errors/error404"
 import { clickEndTaskBtnState, dataApi, idTask, menuState } from "../context/conText"
 import { useState } from "react"
 import { GetDataAndPushInContext } from "../components/task/getData"
+import { Setting } from "../components/page/setting"
+import { Developing } from "../components/page/developing"
 
 
 export const conText = createContext(menuState);
@@ -37,8 +39,9 @@ const AppRoutes = () => {
                         <BrowserRouter>
                             <Routes>
                                 <Route path={"/"} element={<Template><Dashboard /></Template>} />
-                                <Route path={"/aboutOurWork"} element={<Template><AboutOurWork /></Template>} />
                                 <Route path={"/dashboard"} element={<Template><Dashboard /></Template>} />
+                                <Route path={"/aboutOurWork"} element={<Template><AboutOurWork /></Template>} />
+                                <Route path={"/setting"} element={<Template><Developing /></Template>} />
                                 <Route path={"/newTask"} element={<Template><RegisteringDailyTask /></Template>} />
                                 <Route path={"/viewAllTask"} element={<Template><AllTask /></Template>} />
                                 <Route path={"/targetRegistration"} element={<Template><TargetRegistration /></Template>} />
