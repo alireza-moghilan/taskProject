@@ -9,5 +9,6 @@ export const clickEndTaskBtnState = {
 }
 export const dataApi = {
     data:{},
+    users:{}
     // dataEdit:false
 }

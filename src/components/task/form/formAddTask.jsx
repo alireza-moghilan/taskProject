@@ -10,6 +10,7 @@ export const FormAddTask = () => {
     // state
     const [inputTask, setInputTask] = useState({
         id: 1,
+        // userId:1,
         subject: "",
         typeTask: "",
         dateRegistration:new Date().toString().split(' ')[0],
@@ -77,7 +78,7 @@ export const FormAddTask = () => {
         // get Data
         try {
             // Post Data
-            const result = await client.get('/tasks', task)
+            const result = await client.get('/userTask', task)
             // Pour the received information into the variable
             const { data } = result;
             saveApiInContext.setDataState(data)

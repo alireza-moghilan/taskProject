@@ -1,0 +1,28 @@
+/* ********* login ********* */
+/* root and color */
+@import url('./root.css');
+
+.loginCss,.loginCss>body {
+    overflow-y: auto;
+}
+
+.loginCss {
+    background: linear-gradient(-157deg, #0e002d, #17137d, #514dc7) !important;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginCss .login-right-img {
+    background: linear-gradient(-123deg, #552cb3, var(--main-color-dark), var(--main-color));
+}
+
+.loginCss .login-section {
+    box-shadow: 0px 0px 10px 15px #fff;
+}
+
+.loginCss .btn-font {
+    font-size: 22px !important;
+}

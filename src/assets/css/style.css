@@ -146,6 +146,11 @@ textarea {
     background-color: var(--main-color);
 }
 
+.dropdown-item.active, .dropdown-item:active {
+    background-color: var(--main-color) !important;
+    color: #fff !important;
+}
+
 
 /* content */
 .content {
@@ -159,16 +164,19 @@ footer {
     margin-top: auto !important;
     box-shadow: -4px 0px 10px #d8cdd88c;
 }
+
 @media screen and (max-width:1200px) {
     .footer-logo {
         width: 30%;
     }
 }
+
 @media screen and (min-width:1200px) {
     .footer-logo {
         width: 20%;
     }
 }
+
 @media screen and (max-width:767px) {
     .footer-logo {
         width: 100%;
@@ -232,12 +240,15 @@ footer {
     25% {
         box-shadow: 0 0 1px 1px var(--gold-color);
     }
+
     50% {
         box-shadow: 0 0 2px 2px var(--gold-color);
     }
+
     75% {
         box-shadow: 0 0 2px 3px var(--gold-color);
     }
+
     100% {
         box-shadow: 0 0 1px 4px var(--gold-color);
     }
@@ -522,7 +533,7 @@ footer {
 
 /* +++++ Developing +++++ */
 .development-img {
-    width: 100%;   
+    width: 100%;
 }
 
 @media (min-width:1200px) {

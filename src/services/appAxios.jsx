@@ -3,7 +3,7 @@ import {  toast } from 'react-toastify';
 
 // url Api
 const instance = axios.create({
-    baseURL: 'http://localhost:3000'
+    baseURL: 'http://localhost:4000'
 });
 
 
@@ -19,6 +19,11 @@ instance.interceptors.response.use(null,error=>{
     else if(error.response && error.response.status==404)
     {
         toast.error('پیدا نشد');
+        return;
+    }
+    else if(error.response && error.response.status==535)
+    {
+        toast.error('در ثبت اطلاعات مشکلی وجود دارد');
         return;
     }
     toast.error('خطای اتصال به سرور')
