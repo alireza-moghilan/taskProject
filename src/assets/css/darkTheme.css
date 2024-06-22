@@ -46,6 +46,8 @@
     color: #fff !important;
 }
 
+/* input */
+
 .darkMode input,
 .darkMode select,
 .darkMode textarea {
@@ -160,4 +162,56 @@
 .darkMode .Toastify__toast-theme--light {
     background-color: var(--dark-color-box);
     color: #fff;
+}
+
+/* dropdown-menu */
+.darkMode .dropdown-menu {
+    background-color: var(--dark-color-box);
+}
+
+.darkMode .dropdown-item:hover {
+    color: var(--dark-color-box) !important;
+}
+
+.darkMode .dropdown-item:hover .bi {
+    color: var(--dark-color-box) !important;
+}
+
+.darkMode .dropdown-item:hover span {
+    color: var(--dark-color-box) !important;
+}
+
+.darkMode .dropdown-toggle:hover {
+    color: #fff !important;
+}
+
+.darkMode .dropdown-toggle:focus {
+    color: #fff !important;
+}
+
+
+/* setting */
+.darkMode .setting {
+    background-color: var(--dark-color-box) !important;
+}
+
+.darkMode .setting h4,
+.darkMode .setting p,
+.darkMode .setting a,
+.darkMode .setting span {
+    color: #fff !important;
+}
+
+.darkMode .user-setting>div {
+    background: #807f7fdc;
+    box-shadow: 0 0 10px #fff;
+}
+
+.darkMode .alert {
+    background: var(--main-color-dark);
+}
+
+.darkMode .alert> .text-success {
+    color: #000 !important;
+    font-weight: 900;
 }

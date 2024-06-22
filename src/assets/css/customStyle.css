@@ -274,6 +274,24 @@
     margin-left: 100px;
 }
 
+@media screen and (min-width:767.98px) {
+    .m-md-100 {
+        margin: 100px !important;
+    }
+    .mt-md-100 {
+        margin-top: 100px !important;
+    }
+    .mb-md-100 {
+        margin-bottom: 100px !important;
+    }
+    .ms-md-100 {
+        margin-right: 100px !important;
+    }
+    .me-md-100 {
+        margin-left: 100px !important;
+    } 
+}
+
 
 .m-150 {
     margin: 150px;

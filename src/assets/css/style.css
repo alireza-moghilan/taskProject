@@ -95,6 +95,12 @@ textarea {
     background: #f1f1f1;
 }
 
+/* disable hide and show password browsrs in css */
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+    display: none;
+}
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: var(--main-color-dark);
@@ -146,11 +152,23 @@ textarea {
     background-color: var(--main-color);
 }
 
-.dropdown-item.active, .dropdown-item:active {
+.dropdown-item.active,
+.dropdown-item:active {
     background-color: var(--main-color) !important;
     color: #fff !important;
 }
 
+.form-floating>.form-control-plaintext~label::after,
+.form-floating>.form-control:focus~label::after,
+.form-floating>.form-control:not(:placeholder-shown)~label::after,
+.form-floating>.form-select~label::after {
+    background-color: #ffffff00 !important;
+}
+
+/* toast */
+.Toastify__toast {
+    direction: rtl !important;
+}
 
 /* content */
 .content {
@@ -540,4 +558,12 @@ footer {
     .development-img {
         width: 70%;
     }
+}
+
+
+
+
+/* +++++ form +++++ */
+.eye {
+    cursor: pointer;
 }

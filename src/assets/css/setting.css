@@ -1,0 +1,25 @@
+/* root and color */
+@import url('./root.css');
+
+.user-setting>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--lemon-transparent-color);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-top: -8rem;
+    margin-bottom: 2rem;
+}
+
+.user-setting>div>i {
+    font-size: 7rem;
+}
+
+.eye {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(50%, -50%);
+}
