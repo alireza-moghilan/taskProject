@@ -41,7 +41,7 @@ export const GetDataAndPushInContext = () => {
         }
         fetch();
 
-    }, [saveApiInContext])
+    }, [])
 }
 
 export const GetData = () => {
@@ -83,7 +83,13 @@ export const GetUserDataOnLoad = () => {
                 saveUserInContext.setUserInfo([''])
             }
             else {
-                saveUserInContext.setUserInfo(data);
+                // saveUserInContext.setUserInfo(data);
+                let userName = localStorage.getItem('userName');
+                data.map(index=>{
+                    if (index.userName==userName) {
+                        saveUserInContext.setUserInfo([index]);
+                    }
+                })
             }
         }
         catch (error) {

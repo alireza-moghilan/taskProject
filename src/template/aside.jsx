@@ -16,7 +16,7 @@ export const Aside = (menuStatus) => {
     const loc = useLocation();
     // state
     const [asideClass, setAsideClass] = useState("col-aside");
-    const [userName, setUserName] = useState([]);
+    const [userInfoState, setUserInfoState] = useState([]);
     const [putUserInfo, setPutUserInfo] = useState([]);
 
     // use ConText
@@ -28,8 +28,8 @@ export const Aside = (menuStatus) => {
     }, [menu])
 
     useEffect(() => {
-        setUserName(saveUserInContext.userInfo)
-    }, [saveUserInContext])
+        setUserInfoState(saveUserInContext.userInfo)
+    }, [saveUserInContext.userInfo[0]])
 
     const asideClose = () => {
         menu.setMenuMode(false)
@@ -38,10 +38,11 @@ export const Aside = (menuStatus) => {
 
     // signOut
     const signOut = async () => {
+        const id = userInfoState[0].userId;
         try {
             // post data
-            const login = await client.post('/userInfo', putUserInfo);
-            if (login.status === 201) {
+            const login = await client.put(`userInfo/${id}`, {loginStatus:'false'});
+            if (login.status === 200) {
                 // Goodbye
                 toast.success("به امید دیدار");
                 // go to home page
@@ -64,7 +65,7 @@ export const Aside = (menuStatus) => {
             <aside className={asideClass + " aside"} style={{ height: "100vh" }}>
                 <div className="d-flex flex-column flex-shrink-0 p-3 bg-light h-100 w-100 shadow-custom">
                     <div className='w-100 d-flex align-items-center justify-content-between'>
-                        <Link to={"/"} className="brand d-flex align-items-end mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                        <Link to={"/dashboard"} className="brand d-flex align-items-end mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                             <img src={logoColorTwoCard} className='logo-aside' alt="" />
                             <span className={menu.menuMode === false ? "d-none" : "" + "fs-4 ms-3 mb-0 h6"}>تسکار</span>
                         </Link>
@@ -112,12 +113,12 @@ export const Aside = (menuStatus) => {
                     <hr />
                     <div className="dropdown">
                         <a href="#" className="d-flex align-items-center justify-content-center link-dark text-decoration-none dropdown-toggle" dir='ltr' id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                            <strong className='d-lg-block d-none'>{userName.map(index => { return index.userName })}</strong>
+                            <strong className='d-lg-block d-none ms-3'>{localStorage.getItem('userName')}</strong>
                             {/* <img src={profile} alt="" width="32" height="32" className="rounded-circle me-2" /> */}
                         </a>
                         <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
                             <li className=''><div className='dropdown-item py-2'>
-                            <span className='me-2'><span className='me-2'><i class="bi bi-clock" style={{"verticalAlign":"top"}}></i></span>زمان ورود: </span><span className='fw-bold'>{userName.map(index => { return index.loginTime })}</span>
+                            <span className='me-2'><span className='me-2'><i class="bi bi-clock" style={{"verticalAlign":"top"}}></i></span>زمان ورود: </span><span className='fw-bold'>{userInfoState.map(index => { return index.loginTime })}</span>
                             </div>
                             </li>
                             <li><hr className="dropdown-divider" /></li>

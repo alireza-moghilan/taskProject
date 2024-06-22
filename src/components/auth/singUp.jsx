@@ -11,14 +11,39 @@ import { toast } from "react-toastify";
 import queryString from 'query-string';
 import { conTextDataApi } from "../../routes/routes";
 import { useContext } from "react";
-import { dataApi } from "../../context/conText";
+import { PasswordInputErrors, RePassword, UserInputErrors } from "../input/inputStatus";
 
 const SingUp = () => {
     // state
-    const [inputTask, setInputTask] = useState({
+    const [input, setInput] = useState({
         userName: "",
-        password: ""
+        password: "",
+        rePassword:""
     })
+    const [color, setColor] = useState();
+    
+    const [type, setType] = useState(['password', 'password']);
+    const [icon, setIcon] = useState(['bi-eye', 'bi-eye']);
+
+    const showHidePassword = (num) => {
+        if (type.length < 2) {
+            setType([...type, 'password']);
+            setIcon([...icon, 'bi-eye']);
+        }
+
+        const arrType = [];
+        const arrIcon = [];
+        for (let index = 0; index < 2; index++) {
+            arrType.push(type[index])
+            arrIcon.push(icon[index])
+        }
+        arrType[num] = (arrType[num] == 'password' ? 'text' : 'password');
+        arrIcon[num] = (arrIcon[num] == 'bi-eye-slash' ? 'bi-eye' : 'bi-eye-slash');
+
+        setType(arrType);
+        setIcon(arrIcon);
+    }
+
     const navigate = useNavigate();
     const loc = useLocation();
 
@@ -32,7 +57,7 @@ const SingUp = () => {
     const onInput = ev => {
         // value Input
         const { name, value } = ev.target;
-        setInputTask({ ...inputTask, [name]: value });
+        setInput({ ...input, [name]: value });
     }
 
     // use ConText
@@ -60,18 +85,29 @@ const SingUp = () => {
     const register = async ev => {
         // preventDefault
         ev.preventDefault();
+                
+        // Incomplete error
+        if (UserInputErrors(input.userName).logined != true || PasswordInputErrors(input.password).logined != true) {
+            setColor("text-danger inputErros")
+            return;
+        }
+        if (input.password != input.rePassword) {
+            return;
+        }
 
         try {
             // post data
-            const register = await client.post('/register', inputTask);
+            const register = await client.post('/register', input);
             if (register.status === 201) {
                 // welcome
                 toast.success("خوش آمدید");
                 // get data ==> for added tasks
-                getData()
+                getData();
+                // set userName in the localstorage
+                localStorage.setItem('userName',input.userName);
 
                 // go to home page
-                let destination = '/';
+                let destination = '/dashboard';
                 const parsed = queryString.parse(loc.search);
                 if (loc.search !== '') {
                     destination = parsed.url;
@@ -101,13 +137,29 @@ const SingUp = () => {
                                         ثبت نام
                                     </h1>
                                 </div>
-                                <div className="col-12 mb-3">
+                                <div className="col-12">
                                     <label htmlFor="" className="form-label text-white mb-3">نام کاربر</label>
                                     <input type="text" className="form-control shadow-md" id="" placeholder="نام کاربر" name="userName" onInput={onInput} />
+                                    {
+                                        UserInputErrors(input.userName, color).message
+                                    }
                                 </div>
-                                <div className="col-12 mb-3">
+                                <div className="col-12">
                                     <label htmlFor="" className="form-label text-white mb-3">رمز عبور</label>
                                     <input type="password" className="form-control shadow-md" id="" placeholder="رمز عبور" name="password" onInput={onInput} />
+                                    {
+                                        PasswordInputErrors(input.password, color).message
+                                    }
+                                </div>
+                                <div className="form-floating col-12 mb-4">
+                                    <div className='form-floating position-relative'>
+                                        <input type={type[1] ?? 'password'} className="form-control shadow-md password" style={{ "height": "56px", "minHeight": "56px" }} id="floatingRePassword" placeholder="تکرار رمز عبور" name="rePassword" onInput={onInput} />
+                                        <label htmlFor="floatingRePassword" className='d-flex align-items-center'>تکرار رمز عبور</label>
+                                        <div className='eye' onClick={() => showHidePassword(1)}>
+                                            <i className={icon[1] + " bi h5"}></i>
+                                        </div>
+                                    </div>
+                                    {RePassword(input.password, input.rePassword).message}
                                 </div>
                                 <div className="text-center">
                                     <button className="btn main-btn w-100 py-2 btn-font">

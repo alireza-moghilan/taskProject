@@ -11,16 +11,39 @@ import { toast } from "react-toastify";
 import queryString from 'query-string';
 import { conTextDataApi, conTextUserApi } from "../../routes/routes";
 import { useContext } from "react";
-import { dataApi } from "../../context/conText";
-import { GetUserDataOnLoad, GetUserDataOnSubmit } from "../task/getData";
+import { PasswordInputErrors, UserInputErrors, notFindError } from "../input/inputStatus";
 
 
 const Login = () => {
     // state
-    const [inputTask, setInputTask] = useState({
+    const [input, setInput] = useState({
         userName: "",
         password: ""
     })
+    const [color, setColor] = useState();
+
+    // hide and show password
+    const [type, setType] = useState(['password', 'password']);
+    const [icon, setIcon] = useState(['bi-eye', 'bi-eye']);
+
+    const showHidePassword = (num) => {
+        if (type.length < 2) {
+            setType([...type, 'password']);
+            setIcon([...icon, 'bi-eye']);
+        }
+
+        const arrType = [];
+        const arrIcon = [];
+        for (let index = 0; index < 2; index++) {
+            arrType.push(type[index])
+            arrIcon.push(icon[index])
+        }
+        arrType[num] = (arrType[num] == 'password' ? 'text' : 'password');
+        arrIcon[num] = (arrIcon[num] == 'bi-eye-slash' ? 'bi-eye' : 'bi-eye-slash');
+
+        setType(arrType);
+        setIcon(arrIcon);
+    }
 
     const navigate = useNavigate();
     const loc = useLocation();
@@ -35,7 +58,7 @@ const Login = () => {
     const onInput = ev => {
         // value Input
         const { name, value } = ev.target;
-        setInputTask({ ...inputTask, [name]: value });
+        setInput({ ...input, [name]: value });
     }
 
     // use ConText
@@ -60,21 +83,56 @@ const Login = () => {
         }
     }
 
+    const saveUserInContext = useContext(conTextUserApi);
+    const getUserInfo = async () => {
+        try {
+            // get
+            const result = await client.get('/userInfo');
+            // Pour the received information into the variable
+            const { data } = result;
+            // Set state
+            if (result.data == []) {
+                saveUserInContext.setUserInfo([''])
+            }
+            else {
+                data.map(index=>{
+                    if (index.userName==input.userName && index.password==input.password) {
+                        saveUserInContext.setUserInfo([index]);
+                    }
+                })
+            }
+        }
+        catch (e) {
+            console.log(e)
+        }
+    }
+
     // authentication
     const authentication = async ev => {
         // preventDefault
         ev.preventDefault();
+        
+        // Incomplete error
+        if (UserInputErrors(input.userName).logined != true || PasswordInputErrors(input.password).logined != true) {
+            setColor("text-danger inputErros")
+            return;
+        }
+
         try {
             // post data
-            const login = await client.post('/login', inputTask);
+            const login = await client.post('/login', input);
             if (login.status === 201) {
                 // welcome
                 toast.success("خوش آمدید");
                 // get data ==> for added tasks
-                getData()
-                
+                getData();
+                // get user information
+                getUserInfo();
+                // set userName in the localstorage
+                localStorage.setItem('userName',input.userName);
+
                 // go to home page
-                let destination = '/';
+                let destination = '/dashboard';
                 const parsed = queryString.parse(loc.search);
                 if (loc.search !== '') {
                     destination = parsed.url;
@@ -107,10 +165,21 @@ const Login = () => {
                                 <div className="col-12 mb-3">
                                     <label htmlFor="" className="form-label text-white mb-3">نام کاربر</label>
                                     <input type="text" className="form-control shadow-md" id="" placeholder="نام کاربر" name="userName" onInput={onInput} />
+                                    {
+                                        UserInputErrors(input.userName, color).message
+                                    }
                                 </div>
                                 <div className="col-12 mb-3">
                                     <label htmlFor="" className="form-label text-white mb-3">رمز عبور</label>
-                                    <input type="password" className="form-control shadow-md" id="" placeholder="رمز عبور" name="password" onInput={onInput} />
+                                    <div className="position-relative">
+                                    <input type={type[1] ?? 'password'} className="form-control shadow-md" id="" placeholder="رمز عبور" name="password" onInput={onInput} />
+                                    <div className='eye' onClick={() => showHidePassword(1)}>
+                                            <i className={icon[1] + " bi h5"}></i>
+                                        </div>
+                                    </div>
+                                    {
+                                        PasswordInputErrors(input.password, color).message
+                                    }
                                 </div>
                                 <div className="text-center">
                                     <button className="btn main-btn w-100 py-2 btn-font">

@@ -55,6 +55,7 @@ export const FormAddTask = () => {
             // Checked status
             if (postData.status === 201) {
                 toast.success("اطلاعات با موفقیت ثبت شد.");
+                // Emptying the contents of the forms
                 setInputTask({
                     id: 1,
                     subject: "",

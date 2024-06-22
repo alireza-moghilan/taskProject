@@ -16,7 +16,7 @@ export const Footer = (ev) => {
                     <p className="col-md-4 col-4 mb-0 text-body-secondary text-center">© 2023 taskKar, Inc</p>
 
                     
-                    <Link to={"/home"} className="col-md-4 col-2 d-flex align-items-center justify-content-end mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                    <Link to={"/dashboard"} className="col-md-4 col-2 d-flex align-items-center justify-content-end mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
                         <img src={logoColorTwoCard} className='footer-logo' alt="" />
                     </Link>
                 </div>
