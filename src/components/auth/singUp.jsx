@@ -129,23 +129,23 @@ const SingUp = () => {
                             <img src={LoginImg} className="w-75" alt="singUp" />
                         </div>
                     </div>
-                    <div className="col-lg-6 col-12 p-lg-5 p-4">
+                    <div className="col-lg-6 col-12 p-lg-5 p-4 bg-white">
                         <div className="h-100 d-flex align-items-center">
-                            <form action="" className="row align-items-center justify-content-center gy-3" onSubmit={register}>
+                            <form action="" className="row justify-content-center gy-1" onSubmit={register}>
                                 <div>
-                                    <h1 className="h1 text-center text-white">
+                                    <h1 className="h1 text-center">
                                         ثبت نام
                                     </h1>
                                 </div>
                                 <div className="col-12">
-                                    <label htmlFor="" className="form-label text-white mb-3">نام کاربر</label>
+                                    <label htmlFor="" className="form-label mb-3">نام کاربر</label>
                                     <input type="text" className="form-control shadow-md" id="" placeholder="نام کاربر" name="userName" onInput={onInput} />
                                     {
                                         UserInputErrors(input.userName, color).message
                                     }
                                 </div>
                                 <div className="col-12">
-                                    <label htmlFor="" className="form-label text-white mb-3">رمز عبور</label>
+                                    <label htmlFor="" className="form-label mb-3">رمز عبور</label>
                                     <input type="password" className="form-control shadow-md" id="" placeholder="رمز عبور" name="password" onInput={onInput} />
                                     {
                                         PasswordInputErrors(input.password, color).message
@@ -161,14 +161,14 @@ const SingUp = () => {
                                     </div>
                                     {RePassword(input.password, input.rePassword).message}
                                 </div>
-                                <div className="text-center">
+                                <div className="text-center mt-3">
                                     <button className="btn main-btn w-100 py-2 btn-font">
                                         ثبت نام
                                     </button>
                                 </div>
                                 <div className="text-center">
-                                    <hr className="text-white p-2" />
-                                    <Link to={"/Login"} className="text-white">قبلا ثبت نام کردی؟  از اینجا وارد شو.</Link>
+                                    <hr className="p-2" />
+                                    <Link to={"/Login"} className="">قبلا ثبت نام کردی؟  از اینجا وارد شو.</Link>
                                 </div>
                             </form>
                         </div>

@@ -1,6 +1,7 @@
 // imports
 // img 
-import LoginImg from "../../assets/img/3D/login.png"
+import LoginImg from "../../assets/img/3D/login.png";
+import logo from "../../assets/img/logoColorTwoCard.png"
 // css
 import "../../assets/css/login.css";
 // jsx
@@ -95,8 +96,8 @@ const Login = () => {
                 saveUserInContext.setUserInfo([''])
             }
             else {
-                data.map(index=>{
-                    if (index.userName==input.userName && index.password==input.password) {
+                data.map(index => {
+                    if (index.userName == input.userName && index.password == input.password) {
                         saveUserInContext.setUserInfo([index]);
                     }
                 })
@@ -111,7 +112,7 @@ const Login = () => {
     const authentication = async ev => {
         // preventDefault
         ev.preventDefault();
-        
+
         // Incomplete error
         if (UserInputErrors(input.userName).logined != true || PasswordInputErrors(input.password).logined != true) {
             setColor("text-danger inputErros")
@@ -129,7 +130,7 @@ const Login = () => {
                 // get user information
                 getUserInfo();
                 // set userName in the localstorage
-                localStorage.setItem('userName',input.userName);
+                localStorage.setItem('userName', input.userName);
 
                 // go to home page
                 let destination = '/dashboard';
@@ -154,26 +155,27 @@ const Login = () => {
                             <img src={LoginImg} className="w-75" alt="login" />
                         </div>
                     </div>
-                    <div className="col-lg-6 col-12 p-lg-5 p-4">
+                    <div className="col-lg-6 col-12 p-lg-5 p-4 bg-white">
                         <div className="h-100 d-flex align-items-center">
-                            <form action="" className="row align-items-center justify-content-center gy-3" onSubmit={authentication}>
+                            <form action="" className="row justify-content-center gy-1" onSubmit={authentication}>
+                                <div className="col-12 mb-3"><img src={logo} width={120} alt="" /></div>
                                 <div>
-                                    <h1 className="h1 text-center text-white">
-                                        ورود
+                                    <h1 className="h1 text-start text-dark mb-4">
+                                        ورود به سایت
                                     </h1>
                                 </div>
-                                <div className="col-12 mb-3">
-                                    <label htmlFor="" className="form-label text-white mb-3">نام کاربر</label>
+                                <div className="col-12">
+                                    <label htmlFor="" className="form-label mb-3">نام کاربر</label>
                                     <input type="text" className="form-control shadow-md" id="" placeholder="نام کاربر" name="userName" onInput={onInput} />
                                     {
                                         UserInputErrors(input.userName, color).message
                                     }
                                 </div>
-                                <div className="col-12 mb-3">
-                                    <label htmlFor="" className="form-label text-white mb-3">رمز عبور</label>
+                                <div className="col-12">
+                                    <label htmlFor="" className="form-label mb-3">رمز عبور</label>
                                     <div className="position-relative">
-                                    <input type={type[1] ?? 'password'} className="form-control shadow-md" id="" placeholder="رمز عبور" name="password" onInput={onInput} />
-                                    <div className='eye' onClick={() => showHidePassword(1)}>
+                                        <input type={type[1] ?? 'password'} className="form-control shadow-md" id="" placeholder="رمز عبور" name="password" onInput={onInput} />
+                                        <div className='eye' onClick={() => showHidePassword(1)}>
                                             <i className={icon[1] + " bi h5"}></i>
                                         </div>
                                     </div>
@@ -181,14 +183,14 @@ const Login = () => {
                                         PasswordInputErrors(input.password, color).message
                                     }
                                 </div>
-                                <div className="text-center">
+                                <div className="text-center mt-3">
                                     <button className="btn main-btn w-100 py-2 btn-font">
                                         ورود
                                     </button>
                                 </div>
                                 <div className="text-center">
-                                    <hr className="text-white p-2" />
-                                    <Link to={"/singUp"} className="text-white">هنوز ثبت نام نکردی؟</Link>
+                                    <hr className="p-2" />
+                                    <Link to={"/singUp"} className="text-dark">هنوز ثبت نام نکردی؟</Link>
                                 </div>
                             </form>
                         </div>

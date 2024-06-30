@@ -196,7 +196,7 @@ export const Setting = () => {
                                         </div>
                                         <div className="text-center">
                                             <button className="btn main-btn w-100 py-2 btn-font">
-                                                ثبت نام
+                                                ذخیره تغییرات
                                             </button>
                                         </div>
                                     </form>
