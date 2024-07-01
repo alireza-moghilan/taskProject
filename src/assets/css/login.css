@@ -5,15 +5,17 @@
 .loginCss,
 .loginCss>body {
     overflow-y: auto;
+    height: 100vh;
+}
+
+.loginCss main {
+    display: flex;
+    align-items: center;
+    height: 100vh;
 }
 
 .loginCss {
     background: linear-gradient(-157deg, #d4d7ea, #d4d7ea, #d4d7ea) !important;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .loginCss .login-right-img {
@@ -73,4 +75,11 @@
     animation-delay: .2s;
     animation-iteration-count: 3;
     animation-direction: alternate;
+}
+
+/* responsive */
+@media screen and (max-height:805px) {
+    .loginCss main {
+        align-items: unset !important;
+    }
 }

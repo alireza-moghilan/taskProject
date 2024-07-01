@@ -44,11 +44,11 @@ const AppRoutes = () => {
                             <GetDataAndPushInContext />
                             <BrowserRouter>
                                 <Routes>
-                                    <Route path={"/"} element={<Login />} />
+                                    {/* <Route path={"/"} element={<Login />} /> */}
                                     <Route path={"/login"} element={<Login />} />
                                     <Route path={"/singUp"} element={<SingUp />} />
 
-                                    {/* <Route path={"/"} element={<Template><Dashboard /></Template>} /> */}
+                                    <Route path={"/"} element={<Template><Dashboard /></Template>} />
                                     <Route path={"/dashboard"} element={<Template><Dashboard /></Template>} />
                                     <Route path={"/aboutOurWork"} element={<Template><AboutOurWork /></Template>} />
                                     <Route path={"/setting"} element={<Template><Setting /></Template>} />

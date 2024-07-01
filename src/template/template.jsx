@@ -27,25 +27,28 @@ export const Template = props => {
     //     loginStatusFun();
     // }, []);
     // // 
-    // // const [loginStatus,setLoginStatus]=useState();
-    // const navigate = useNavigate();
-    // const loc = useLocation();
-    // const loginStatusFun = () => {
-    //     if (!loginStatus) {
-    //         // go to login page
-    //         let destination = '/login';
-    //         const parsed = queryString.parse(loc.search);
-    //         console.log("'" + loc.search + "'");
-    //         if (loc.search !== '') {
-    //             destination = parsed.url;
-    //         }
-    //         navigate(destination, { replace: true });
-    //     }
-    // }
+    const [loginStatus,setLoginStatus]=useState(localStorage.getItem('loginStatus'));
+    const navigate = useNavigate();
+    const loc = useLocation();
+    const loginStatusFun = () => {
+        if (!loginStatus) {
+            // go to login page
+            let destination = '/login';
+            const parsed = queryString.parse(loc.search);
+            console.log("'" + loc.search + "'");
+            if (loc.search !== '') {
+                destination = parsed.url;
+            }
+            navigate(destination, { replace: true });
+        }
+    }
     // add style css in page
     useEffect(() => {
         document.querySelector('html').classList.remove('loginCss');
         document.querySelector('body').classList.remove('loginCss');
+
+        // 
+        loginStatusFun();
     }, [])
     return (
         <>

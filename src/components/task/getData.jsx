@@ -127,3 +127,8 @@ export const GetUserDataOnSubmit =async () => {
         console.log(error)
     }
 }
+
+
+export const SetLoginStatus = ()=> {
+    localStorage.setItem('loginStatus',true);
+}

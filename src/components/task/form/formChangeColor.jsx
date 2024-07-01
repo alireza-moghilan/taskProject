@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 export const FormChangeColor = () => {
-    const [storageValue, setStorageValue] = useState(localStorage.getItem('bgTheme') == "true" ? true : false ?? true)
+    const [storageValue, setStorageValue] = useState(localStorage.getItem('bgTheme') == true ? "true" : false ?? true)
 
     // change bg theme
     const changeBgTheme = () => {

@@ -28,8 +28,8 @@ export const RePassword = (password, rePassword) => {
         return {message:''};
     }
     if (password == rePassword && password!=0) {
-        return { message: <div class="mt-3 p-inp-warning" role="alert"><span className="text-success">تطابق دارد.</span></div> };
+        return { message: <div class="mt-3 py-2" role="alert"><span className="text-success">تطابق دارد.</span></div> };
     } else
-        return { message: <div class="input-warning mt-3 text-main" role="alert"><span className="text-danger inputErros">تطابق ندارد.</span></div> };
+        return { message: <div class="input-warning mt-4 py-2 text-main" role="alert"><span className="text-danger inputErros">تطابق ندارد.</span></div> };
 
 }
