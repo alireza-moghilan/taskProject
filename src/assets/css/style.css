@@ -56,6 +56,10 @@ body {
     overflow: hidden;
 }
 
+main {
+    position: relative;
+}
+
 input,
 textarea {
     box-shadow: 0 0 3px #6f6be5 !important;
@@ -287,7 +291,7 @@ footer {
 
 /* Task settings */
 .task-settings {
-    position: fixed;
+    position: absolute;
     left: 3%;
     bottom: 16%;
 }
