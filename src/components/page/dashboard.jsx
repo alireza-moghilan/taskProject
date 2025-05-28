@@ -142,15 +142,17 @@ export const Dashboard = (ev) => {
         </div>
 
         {/* Table Task */}
-        <div className="col-12">
-          <div className="shadow-custom rounded-3 p-4 pb-2">
-            <div className="mb-4">
-              <h3 className="fw-bold h6">تسک های جاری</h3>
-              <hr />
+        {data.length !== 0 && (
+          <div className="col-12">
+            <div className="shadow-custom rounded-3 p-4 pb-2">
+              <div className="mb-4">
+                <h3 className="fw-bold h6">تسک های جاری</h3>
+                <hr />
+              </div>
+              {<DataTable />}
             </div>
-            {<DataTable />}
           </div>
-        </div>
+        )}
       </div>
     </>
   );
