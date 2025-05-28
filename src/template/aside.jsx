@@ -24,7 +24,7 @@ export const Aside = (menuStatus) => {
     const saveUserInContext = useContext(conTextUserApi);
 
     useEffect(() => {
-        menu.menuMode === false ? setAsideClass("aside-close") : setAsideClass("col-aside")
+        !menu.menuMode ? setAsideClass("aside-close") : setAsideClass("col-aside")
     }, [menu])
 
     useEffect(() => {
@@ -67,7 +67,7 @@ export const Aside = (menuStatus) => {
                     <div className='w-100 d-flex align-items-center justify-content-between'>
                         <Link to={"/dashboard"} className="brand d-flex align-items-end mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                             <img src={logoColorTwoCard} className='logo-aside' alt="" />
-                            <span className={menu.menuMode === false ? "d-none" : "" + "fs-4 ms-3 mb-0 h6"}>تسکار</span>
+                            <span className={!menu.menuMode ? "d-none" : "" + "fs-4 ms-3 mb-0 h6"}>تسکار</span>
                         </Link>
 
                         <div className='m-2 btn-close-custom' onClick={asideClose}>
