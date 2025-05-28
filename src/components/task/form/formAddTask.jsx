@@ -21,10 +21,8 @@ export const FormAddTask = () => {
     timeEndTask: "",
     role: false,
   });
-  const [taskId, setTaskId] = useState([]);
-  const [checkBox, setCheckBox] = useState(false);
-  // use context
 
+  // use context
   const saveApiInContext = useContext(conTextDataApi);
 
   // onInput
@@ -39,10 +37,12 @@ export const FormAddTask = () => {
     // preventDefault
     ev.preventDefault();
 
-    
-    if (inputTask.subject==='' || inputTask.description==='' || inputTask.typeTask==='') 
-        return toast.error('لطفا تمام فیلد های الزامی را پر کنید.')
-
+    if (
+      inputTask.subject === "" ||
+      inputTask.description === "" ||
+      inputTask.typeTask === ""
+    )
+      return toast.error("لطفا تمام فیلد های الزامی را پر کنید.");
 
     // time
     /////////// set in backend
@@ -138,16 +138,14 @@ export const FormAddTask = () => {
                 </label>
                 <input
                   type="checkbox"
-                  className={
-                    (checkBox ? "check-box-active" : "") +
-                    " form-check-input check-box my-0 pointer"
-                  }
+                  className={`
+                    ${inputTask.role ? "check-box-active" : ""}
+                     form-check-input check-box my-0 pointer`}
                   id="checkBox"
                   placeholder="آیا این یک هدف است؟"
                   name="role"
                   onClick={() => {
-                    inputTask.role = !inputTask.role;
-                    setCheckBox(!checkBox);
+                    setInputTask((prev) => ({ ...prev, role: !prev.role }));
                   }}
                 />
               </label>
