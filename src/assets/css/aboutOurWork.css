@@ -57,12 +57,12 @@
 
 /* flash */
 .flash-right {
-    right: -95px;
+    right: -60px;
     /* width: 100%; */
     top: -70px;
 }
 .flash-left {
-    left: -70px;
+    left: -58px;
     /* width: 9%; */
     top: -110px;
     z-index: 20;

@@ -18,8 +18,8 @@ export const AboutOurWork = () => {
     return (
         <>
             <section className="position-relative mb-100">
-                <div className="row align-items-center">
-                    <div className="col-7">
+                <div className="row align-items-center g-lg-0 g-5">
+                    <div className="col-md-7">
                         <div className="img-addTask">
                             <div className="bg-rectangular"></div>
                             <div className="bg-rectangular"></div>
@@ -28,8 +28,8 @@ export const AboutOurWork = () => {
                             <img src={addTask} className="w-100" alt="" />
                         </div>
                     </div>
-                    <div className="col-5">
-                        <h1 className="h1 mb-3 text-main-dark active-bottom-line pb-3">چرا ما اینجایم؟!</h1>
+                    <div className="col-md-5">
+                        <h1 className="h1 mb-3 text-main-dark active-bottom-line d-inline-block pb-3">چرا ما اینجایم؟!</h1>
                         <p className="lh-lg h5">
                             پروژه مدیریت وظایف تسک یک پروژه نرم‌افزاری است که طراحی و توسعه آن به منظور بهبود مدیریت و برنامه‌ریزی وظایف و وظیفه‌های روزمره افراد و تیم‌ها انجام شده است. این پروژه با استفاده از امکانات و قابلیت‌های پلتفرم‌های نرم‌افزاری مدرن، سعی در ایجاد یک سیستم جامع و کارآمد برای مدیریت وظایف دارد.
                         </p>
@@ -39,25 +39,25 @@ export const AboutOurWork = () => {
 
 
             <div className="position-relative">
-                <div className="position-absolute flash-right">
+                <div className="position-absolute flash-right d-md-block d-none">
                     <img src={flashRight} alt="" />
                 </div>
                 <div className="active-bottom-line"></div>
             </div>
 
 
-            <section className="position-relative mb-100">
-                <div className="row align-items-center">
-                    <div className="col-6">
+            <section className="position-relative mb-100 pt-5">
+                <div className="row align-items-center g-5">
+                    <div className="col-md-6">
                         <div className=" ps-md-5 ms-md-4">
-                            <h2 className="h1 mb-3 text-main-dark active-bottom-line pb-3">هدف اصلی پروژه</h2>
+                            <h2 className="h1 mb-3 text-main-dark active-bottom-line d-inline-block pb-3">هدف اصلی پروژه</h2>
                             <p className="lh-lg h5">
                                 پروژه مدیریت وظایف تسک یک پروژه نرم‌افزاری است که طراحی و توسعه آن به منظور بهبود مدیریت و برنامه‌ریزی وظایف و وظیفه‌های روزمره افراد و تیم‌ها انجام شده است. این پروژه با استفاده از امکانات و قابلیت‌های پلتفرم‌های نرم‌افزاری مدرن، سعی در ایجاد یک سیستم جامع و کارآمد برای مدیریت وظایف دارد.
                             </p>
                         </div>
                     </div>
 
-                    <div className="col-6">
+                    <div className="col-md-6">
                         <div className="">
                             <img src={targetTask} className="w-100" alt="" />
                         </div>
@@ -67,7 +67,7 @@ export const AboutOurWork = () => {
 
 
             <div className="position-relative w-100">
-                <div className="position-absolute flash-left">
+                <div className="position-absolute flash-left d-md-block d-none">
                     <img src={flashLeft} alt="" />
                 </div>
                 <div className="active-bottom-line"></div>
