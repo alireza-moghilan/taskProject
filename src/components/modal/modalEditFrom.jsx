@@ -4,9 +4,9 @@ export const ModalEditFrom = (props) => {
   return (
     <>
       <div
-        className={
-          "modal-dialog modal-dialog-centered modal-" + (props.size ?? "modal")
-        }
+        className={`modal-dialog modal-dialog-centered modal-${
+          props.size ?? "modal"
+        }`}
       >
         <div className="modal-content">
           <div className="modal-header">
