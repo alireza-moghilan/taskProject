@@ -12,7 +12,7 @@ export const EndTask = () => {
     // state => Put data
     const [putData, setPutData] = useState({
         timeEndTask: "",
-        startTask: "false",
+        startTask: false,
         endTask: true,
     });
     // use ConText
