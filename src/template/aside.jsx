@@ -79,12 +79,6 @@ export const Aside = (menuStatus) => {
 
                     <hr className='mb-3' />
                     <ul className="nav nav-pills flex-column mb-auto">
-                        {/* <li className="nav-item mb-3">
-                            <Link to={"/home"} className={(location.pathname==="/home"||location.pathname==="/"?"active":"link-dark") + " nav-link"} aria-current="page">
-                                <span className="me-3 icon-aside"><i className="bi bi-house-door"></i></span>
-                                <span>خانه</span>
-                            </Link>
-                        </li> */}
                         <li className="nav-item mb-3">
                             <Link to={"/dashboard"} className={(location.pathname === "/" || location.pathname === "/dashboard" ? "active" : "link-dark") + " nav-link "}>
                                 <span className="me-3 icon-aside"><i className="bi bi-speedometer2"></i></span>
@@ -125,7 +119,7 @@ export const Aside = (menuStatus) => {
                             <li className=''><Link to={'/newTask'} className="dropdown-item py-2"><span className='me-2'><i class="bi bi-list-task" style={{"verticalAlign":"top"}}></i></span>ایجاد تسک جدید</Link></li>
                             <li><hr className="dropdown-divider" /></li>
 
-                            <li className=''><a className="dropdown-item py-2" href="#"><span className='me-2'><i class="bi bi-gear"></i></span>تنظیمات</a></li>
+                            <li className=''><Link to={'/setting'} className="dropdown-item py-2"><span className='me-2'><i class="bi bi-gear"></i></span>تنظیمات</Link></li>
                             <li><hr className="dropdown-divider" /></li>
                             <li className=''><a className="dropdown-item py-2 text-danger" href="#" onClick={signOut}><span className='me-2'><i class="bi bi-door-open"></i></span> خروج از حساب</a></li>
                         </ul>
