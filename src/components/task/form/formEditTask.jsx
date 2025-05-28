@@ -76,12 +76,12 @@ export const FormEditTask = (props) => {
 
   const setDataCheckBox = () => {
     if (inputTask.role == true) {
-      inputTask.role = "false";
+      inputTask.role = false;
     } else {
       inputTask.role = true;
     }
     if (checkBox == true) {
-      setCheckBox("false");
+      setCheckBox(false);
     } else {
       setCheckBox(true);
     }
@@ -145,11 +145,11 @@ export const FormEditTask = (props) => {
               <input
                 type="checkbox"
                 className={
-                  (checkBox == "false" ? "" : "check-box-active") +
+                  (!checkBox ? "" : "check-box-active") +
                   " form-check-input check-box my-0 pointer"
                 }
                 defaultChecked={
-                  props.roleTask === "false" ? false : props.roleTask
+                  !props.roleTask ? false : props.roleTask
                 }
                 id="checkBox"
                 placeholder="آیا این یک هدف است؟"
