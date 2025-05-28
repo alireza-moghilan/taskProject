@@ -61,7 +61,7 @@ export const EndTask = () => {
 
     return (
         <>
-            <a onClick={endTaskFun} className="text-main-dark d-flex align-items-center decoration-none me-2" title="پایان تسک"><i className="d-flex h4 mb-0 bi bi-play-circle pointer"></i></a>
+            <a onClick={endTaskFun} className="text-main-dark d-flex align-items-center decoration-none mx-2" title="پایان تسک"><i className="d-flex h4 mb-0 bi bi-play-circle pointer"></i></a>
         </>
     )
 }
